@@ -1,6 +1,6 @@
 <template>
   <div id="wrap">
-    <Header/>
+    <Header />
   </div>
 </template>
 
