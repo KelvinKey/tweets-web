@@ -25,25 +25,25 @@
 
 <script>
 export default {
-  name: 'TheHeader',
-  data () {
-    return {
-      logo: {
-        title: '动弹一下'
-      },
-       navList: ['首页', '关于'],
-       activeNavIndex: 0,
-       showCollapsedNav: false
-    }
-  },
-  methods: {
-    changeNavIndex(index) {
-      this.activeNavIndex = index
+    name: 'Header',
+    data () {
+        return {
+        logo: {
+            title: '动弹一下'
+        },
+        navList: ['首页', '关于'],
+        activeNavIndex: 0,
+        showCollapsedNav: false
+        }
     },
-    toggleNav() {
-      this.showCollapsedNav = !this.showCollapsedNav
+    methods: {
+        changeNavIndex(index) {
+            this.activeNavIndex = index
+        },
+        toggleNav() {
+            this.showCollapsedNav = !this.showCollapsedNav
+        }
     }
-  }
 }
 </script>
 
