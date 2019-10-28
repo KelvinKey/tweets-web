@@ -1,52 +1,50 @@
 <template>
-<div class="layout">
-123345
+  <div class="layout">
     <Layout>
+      <Header>Header</Header>
+      <Content>Content</Content>
+      <Footer>Footer</Footer>
+    </Layout>
+
+    <Layout>
+      <Header>Header</Header>
+      <Layout>
+        <Sider hide-trigger>Sider</Sider>
+        <Content>Content</Content>
+      </Layout>
+      <Footer>Footer</Footer>
+    </Layout>
+
+    <Layout>
+      <Header>Header</Header>
+      <Layout>
+        <Content>Content</Content>
+        <Sider hide-trigger>Sider</Sider>
+      </Layout>
+      <Footer>Footer</Footer>
+    </Layout>
+
+    <Layout>
+      <Sider hide-trigger>Sider</Sider>
+      <Layout>
         <Header>Header</Header>
         <Content>Content</Content>
         <Footer>Footer</Footer>
+      </Layout>
     </Layout>
-
-    <Layout>
-        <Header>Header</Header>
-        <Layout>
-            <Sider hide-trigger>Sider</Sider>
-            <Content>Content</Content>
-        </Layout>
-        <Footer>Footer</Footer>
-    </Layout>
-
-    <Layout>
-        <Header>Header</Header>
-        <Layout>
-            <Content>Content</Content>
-            <Sider hide-trigger>Sider</Sider>
-        </Layout>
-        <Footer>Footer</Footer>
-    </Layout>
-
-    <Layout>
-        <Sider hide-trigger>Sider</Sider>
-        <Layout>
-            <Header>Header</Header>
-            <Content>Content</Content>
-            <Footer>Footer</Footer>
-        </Layout>
-    </Layout>
-</div>
+  </div>
 </template>
 
 <script>
 export default {
-  name: 'App',
-  data () {
+  name: "App",
+  data() {
     return {
-      msg: 'Welcome to Your Vue.js App'
-    }
+      msg: "Welcome to Your Vue.js App"
+    };
   }
-}
+};
 </script>
 
 <style scoped>
-
 </style>
