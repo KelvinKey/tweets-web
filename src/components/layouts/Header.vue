@@ -58,9 +58,9 @@ export default {
   data() {
     return {
       logo: {
-        title: "动弹一下"
+        title: '动弹一下'
       },
-      navList: ["首页", "关于", "话题", "活动", "潮点"],
+      navList: ['首页', '关于', '话题', '活动', '潮点'],
       activeNavIndex: 0,
       showCollapsedNav: false
     };

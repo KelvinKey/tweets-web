@@ -2,20 +2,20 @@
   <div id="wrap">
     <Header />
     <div id="main-container" class="container main-container">
-      <router-view/>
+      <router-view />
     </div>
   </div>
 </template>
 
 <script>
-import Header from '@/components/layouts/Header'
+import Header from "@/components/layouts/Header";
 
 export default {
-  name: 'App',
+  name: "App",
   components: {
     Header
   }
-}
+};
 </script>
 
 <style lang="scss">
@@ -36,10 +36,10 @@ $fa-font-path: "~font-awesome/fonts/";
 @import "~font-awesome/scss/font-awesome";
 @import "./styles/main";
 @import "./styles/extra";
-  #main-container {
-    position: relative;
-    margin: 0 auto;
-    width: 100%;
-    max-width: 960px;
-  }
+#main-container {
+  position: relative;
+  margin: 0 auto;
+  width: 100%;
+  max-width: 960px;
+}
 </style>

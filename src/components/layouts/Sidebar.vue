@@ -29,16 +29,58 @@
       </ul>
     </div>
 
-    <div class="sidebar-box shadow">
-      <header>推荐动弹</header>
+    <!-- <div class="sidebar-box shadow"> -->
+    <!-- <header>热门动弹</header> -->
+
+    <div class="widget widget-jobs">
+      <div class="sd-title">
+        <h3>热门动弹</h3>
+        <i class="la la-ellipsis-v"></i>
+      </div>
+      <div class="jobs-list">
+        <div class="job-info">
+          <div class="job-details">
+            <h3>Bye Windows</h3>
+            <p>Bye Windows, Hello Deepin! 体验了一周Deepin，还是发个沸点..</p>
+          </div>
+          <!-- <div class="hr-rate">
+            <span>600 评论</span>
+          </div>-->
+        </div>
+        <!--job-info end-->
+        <div class="job-info">
+          <div class="job-details">
+            <h3>双十一</h3>
+            <p>临近双十一，打算在京东买个4k 27寸显示器用来黑苹果，看中了..</p>
+          </div>
+          <!-- <div class="hr-rate">
+            <span>300 评论</span>
+          </div>-->
+        </div>
+        <!--job-info end-->
+        <div class="job-info">
+          <div class="job-details">
+            <h3>入职小白</h3>
+            <p>想找个师傅带带，刚入职小白，好多需求逻辑都不会写😣，相到什么..</p>
+          </div>
+          <!-- <div class="hr-rate">
+            <span>1520 评论</span>
+          </div>-->
+        </div>
+        <!--job-info end-->
+      </div>
+      <!--jobs-list end-->
     </div>
+    <!--widget-jobs end-->
+    <!-- </div> -->
+
     <div id="myCarousel" class="carousel slide">
       <!-- 轮播（Carousel）指标 -->
       <!-- <ol class="carousel-indicators">
         <li data-target="#myCarousel" data-slide-to="0" class="active"></li>
         <li data-target="#myCarousel" data-slide-to="1"></li>
         <li data-target="#myCarousel" data-slide-to="2"></li>
-      </ol> -->
+      </ol>-->
       <!-- 轮播（Carousel）项目 -->
       <div class="carousel-inner">
         <div class="item active">
@@ -59,7 +101,7 @@
       <a class="right carousel-control" href="#myCarousel" role="button" data-slide="next">
         <span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span>
         <span class="sr-only">Next</span>
-      </a> -->
+      </a>-->
     </div>
   </div>
 </template>
@@ -112,7 +154,7 @@ export default {
 
 .user-info {
   position: relative;
-  margin: 1rem 0;
+  margin: 0.47rem 0;
   min-width: 0;
   display: flex;
   flex-direction: column;
