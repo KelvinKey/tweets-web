@@ -2,7 +2,7 @@
   <div class="col-md-2 main-col" style="background-color: rgb(255, 255, 255">
     <!-- 侧边栏标签页 -->
     <ul class="nav nav-pills nav-stacked" style="padding-left: 18px;padding-top: 9px;">
-      <li class="active">
+      <li class="actives">
         <a href="#">推荐</a>
       </li>
       <li>
@@ -43,12 +43,14 @@ export default {
 </script>
 
 <style scoped>
-
 a {
   text-decoration: none;
   cursor: pointer;
   color: #909090;
   text-align: center;
   /* font-size: 1.20rem; */
+}
+.actives :hover {
+  background-color: #53d690;
 }
 </style>

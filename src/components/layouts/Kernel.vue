@@ -6,19 +6,21 @@
       </div>-->
       <textarea name="description" placeholder="Description"></textarea>
 
-      <!-- <div class="post-st"> -->
-      <!-- <ul>
+      <div class="post-st">
+        <ul>
+          <li>111111111</li>
+          <li>22222</li>
+          <li>33333</li>
+          <li>444444</li>
           <li>
             <a class="post_project" href="#" title>发布项目</a>
           </li>
-          <li>
+          <!-- <li>
             <a class="post-jb active" href="#" title>发布工作</a>
-          </li>
-      </ul>-->
+          </li>-->
+        </ul>
+      </div>
     </div>
-    <!--post-st end-->
-    <!-- </div> -->
-    <!--post-topbar end-->
 
     <div class="posts-section">
       <div class="post-bar">
@@ -372,7 +374,7 @@
 @import "../../styles/style.css";
 .post-topbar > textarea {
   padding: 15px;
-  height: 130px;
+  height: 100px;
   width: 100%;
   color: #b2b2b2;
   font-size: 14px;
