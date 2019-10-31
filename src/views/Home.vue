@@ -8,27 +8,9 @@
     <!-- 动弹列表 -->
     <div class="col-md-7 main-col topics-index">
       <div class="panel-body remove-padding-horizontal">
-        <ul class="list-group row topic-list">
-          <li v-for="article in articles" :key="article.articleId" class="list-group-item">
-            <router-link :to="`/articles/${article.articleId}/content`" tag="div" class="reply_count_area hidden-xs pull-right">
-              <div class="count_set">
-                <span class="count_of_votes" title="投票数">{{ article.likeUsers ? article.likeUsers.length : 0 }}</span>
-                <span class="count_seperator">/</span>
-                <span class="count_of_replies" title="回复数">{{ article.comments ? article.comments.length : 0 }}</span>
-                <span class="count_seperator">|</span>
-                <abbr class="timeago">{{ article.date | moment('from') }}</abbr>
-              </div>
-            </router-link>
-            <router-link v-if="user" :to="`/${user.name}`" tag="div" class="avatar pull-left">
-              <img :src="user.avatar" class="media-object img-thumbnail avatar avatar-middle">
-            </router-link>
-            <router-link :to="`/articles/${article.articleId}/content`" tag="div" class="infos">
-              <div class="media-heading">
-                {{ article.title }}
-              </div>
-            </router-link>
-          </li>
-        </ul>
+
+        <Kernel />
+
       </div>
     </div>
 
@@ -39,15 +21,18 @@
 <script>
 import Navigator from '../components/layouts/Navigator'
 import Sidebar from '../components/layouts/Sidebar'
+import Kernel from '../components/layouts/Kernel'
+
 export default {
   name: 'Home',
-  components: {Sidebar, Navigator},
+  components: {Sidebar, Navigator,Kernel},
   data () {
     return {
       msg: '', // 消息
       msgType: '', // 消息类型
       msgShow: false // 是否显示消息，默认不显示
     }
+    
   },
   // 组件内的路由导航守卫
   beforeRouteEnter (to, from, next) {
