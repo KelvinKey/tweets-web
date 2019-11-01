@@ -984,7 +984,7 @@ main {
 	object-fit: cover;
 }
 .post-st {
-	float: right;
+	/* float: right; */
 	margin-top: 5px;
 }
 .post-st ul li {
@@ -996,7 +996,7 @@ main {
 }
 .post-st ul li a {
 	color: #b2b2b2;
-	font-size: 16px;
+	font-size: 10px;
 	display: inline-block;
 	background-color: #e5e5e5;
 	height: 40px;

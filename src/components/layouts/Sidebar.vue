@@ -1,5 +1,6 @@
 <template>
   <div class="col-md-3 side-bar">
+    <!-- 个人 -->
     <div class="sidebar-box shadow">
       <div class="profile">
         <a href="#">
@@ -31,7 +32,7 @@
 
     <!-- <div class="sidebar-box shadow"> -->
     <!-- <header>热门动弹</header> -->
-
+    <!-- 动弹 -->
     <div class="widget widget-jobs">
       <div class="sd-title">
         <h3>热门动弹</h3>
@@ -211,4 +212,5 @@ header {
   padding: 13px 16px;
   border-bottom: 1px solid hsla(0, 0%, 59.2%, 0.1);
 }
+
 </style>
