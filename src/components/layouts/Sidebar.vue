@@ -108,25 +108,82 @@
       </div>
     </div>
     <!--right end-->
+
+    <!--right_1 start-->
     <div style="background-color: rgb(255, 255, 255);">
-      <div style="font-weight:400;">动弹一下</div>
-      <div >一个睿智的社区</div>
-      <div class="mdui-container">
-        <div class="mdui-textfield">
-          <input class="mdui-textfield-input" type="text" placeholder="Name" />
-        </div>
+      <div class="title_a">动弹 - tweets.cn</div>
+      <div class="title_b">一个帮助开发者成长的社区</div>
+      <div class="normalInput">
+        <input type="text" class="phone" maxlength="32" placeholder="账户名" autocomplete="off" />
+      </div>
 
-        <div class="mdui-textfield">
-          <input class="mdui-textfield-input" type="text" placeholder="Phone" />
-        </div>
+      <div class="normalInput">
+        <input type="text" class="phone" maxlength="11" placeholder="手机号码" />
+      </div>
 
-        <div class="mdui-textfield">
-          <input class="mdui-textfield-input" type="text" placeholder="Password" />
-        </div>
+      <div class="normalInput">
+        <input
+          type="text"
+          class="passwordN"
+          maxlength="16"
+          autocomplete="off"
+          placeholder="密码（不少于6位）"
+        />
 
-        <button class="mdui-btn mdui-ripple">button</button>
+        <input
+          type="password"
+          class="password1N"
+          maxlength="16"
+          autocomplete="off"
+          placeholder="密码（不少于6位）"
+        />
+
+        <a id="pwdBtnN" href="##" class="pwdBtnShowN" isshow="false">
+          <i class="i_icon"></i>
+        </a>
+      </div>
+
+      <a href="##" class="fullBtnBlue">注册</a>
+
+      <div class="oauth">
+        第三方登录：
+        <img
+          data-v-bb2e4c50
+          st:name="oauthBtn"
+          st:state="weibo"
+          title="微博"
+          alt="微博"
+          src="https://b-gold-cdn.xitu.io/v3/static/img/weibo.fa758eb.svg"
+          class="oauth-btn"
+        />
+        <img
+          data-v-bb2e4c50
+          st:name="oauthBtn"
+          st:state="github"
+          title="GitHub"
+          alt="GitHub"
+          src="https://b-gold-cdn.xitu.io/v3/static/img/github.547dd8a.svg"
+          class="oauth-btn"
+        />
+        <img
+          data-v-bb2e4c50
+          st:name="oauthBtn"
+          st:state="wechat"
+          title="微信"
+          alt="微信"
+          src="https://b-gold-cdn.xitu.io/v3/static/img/wechat.e0ff124.svg"
+          class="oauth-btn"
+        />
+      </div>
+
+      <div class="agreement">
+        注册登录即表示
+        <br />同意
+        <a href="##" target="_blank">用户协议</a>、
+        <a href="##" target="_blank">隐私政策</a>
       </div>
     </div>
+    <!--right_1 end-->
   </div>
 </template>
 
@@ -137,6 +194,102 @@ export default {
 </script>
 
 <style scoped>
+.oauth-btn {
+  margin-left: 1.2rem;
+  height: 1.3rem;
+  vertical-align: bottom;
+  cursor: pointer;
+  float: right;
+}
+.oauth {
+  font-size: 0.867rem;
+  /* line-height: 1.9rem; */
+  color: #767676;
+}
+.agreement {
+  padding: 1.23rem;
+  font-size: 0.167rem;
+  line-height: 1.5;
+  color: #767676;
+}
+.title_a {
+  font-size: 0.967rem;
+  color: #2e3135;
+  font-weight: 600;
+  padding: 1.333rem;
+  padding-left: 0.7rem;
+}
+.title_b {
+  font-size: 0.867rem;
+  color: #2e3135;
+  margin-top: -0.6rem;
+  font-weight: 600;
+  padding-bottom: 0.56rem;
+  padding-left: 0.7rem;
+}
+.fullBtnBlue {
+  display: inline-block;
+  height: 33px;
+  width: 200px;
+  line-height: 33px;
+  text-align: center;
+  margin-bottom: 20px;
+  outline: none;
+  cursor: pointer;
+  background-color: #53d690;
+  color: #fff;
+  margin-left: 0.6rem;
+}
+
+.normalInput {
+  position: relative;
+  display: inline-block;
+  padding: 0px 10px;
+  width: 220px;
+  height: 30px;
+  /* line-height: 20px;
+  font-size: 16px; */
+  margin-bottom: 20px;
+  /* border: 1px solid #dadada; */
+  outline: none;
+  color: #474747;
+  overflow: visible;
+}
+
+.normalInput input {
+  padding: 0.7rem 0.6rem;
+  width: 100%;
+  font-size: 0.167rem;
+  background-color: #fbfbfb;
+  border: 1px solid #f4f4f4;
+  border-radius: 2px;
+  outline: none;
+  box-sizing: border-box;
+}
+
+.normalInput .password {
+  float: left;
+  width: 200px;
+}
+
+.normalInput .password1 {
+  float: left;
+  width: 200px;
+  display: none;
+}
+
+.normalInput .passwordN {
+  float: left;
+  width: 200px;
+  display: block;
+}
+
+.normalInput .password1N {
+  float: left;
+  width: 200px;
+  display: none;
+}
+
 .shadow {
   box-shadow: 0 1px 2px 0 rgba(0, 0, 0, 0.05);
 }
@@ -183,13 +336,6 @@ export default {
   display: flex;
   flex-direction: column;
   justify-content: space-between;
-}
-
-.username {
-  color: #17181a;
-  font-size: 15px;
-  font-weight: 600;
-  line-height: 1.3;
 }
 
 .position {
