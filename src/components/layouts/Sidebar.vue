@@ -110,7 +110,7 @@
     <!--right end-->
 
     <!--right_1 start-->
-    <div style="background-color: rgb(255, 255, 255);">
+    <div style="background-color: rgb(255, 255, 255);padding: 0.393rem;">
       <div class="title_a">动弹 - tweets.cn</div>
       <div class="title_b">一个帮助开发者成长的社区</div>
       <div class="normalInput">
@@ -195,19 +195,21 @@ export default {
 
 <style scoped>
 .oauth-btn {
-  margin-left: 1.2rem;
+  margin-left: 0.5rem;
   height: 1.3rem;
   vertical-align: bottom;
   cursor: pointer;
-  float: right;
+  float: none;
 }
 .oauth {
   font-size: 0.867rem;
   /* line-height: 1.9rem; */
   color: #767676;
+  margin-left: 0.78rem;
 }
 .agreement {
-  padding: 1.23rem;
+  margin-left: 0.78rem;
+  margin-top: 1.2rem;
   font-size: 0.167rem;
   line-height: 1.5;
   color: #767676;
@@ -238,7 +240,7 @@ export default {
   cursor: pointer;
   background-color: #53d690;
   color: #fff;
-  margin-left: 0.6rem;
+  margin-left: 0.62rem;
 }
 
 .normalInput {
