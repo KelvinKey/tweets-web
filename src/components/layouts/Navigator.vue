@@ -1,7 +1,7 @@
 <template>
-  <div class="col-md-2 main-col" style="background-color: rgb(255, 255, 255">
+  <div class="col-md-2 main-col" style="width:130px;background-color: rgb(255, 255, 255">
     <!-- 侧边栏标签页 -->
-    <ul class="nav nav-pills nav-stacked" style="padding-left: 18px;padding-top: 9px;">
+    <ul class="nav nav-pills nav-stacked" style="padding: 9px 0 9px 18px">
       <li class="actives">
         <a href="#">推荐</a>
       </li>
@@ -43,14 +43,22 @@ export default {
 </script>
 
 <style scoped>
-a {
-  text-decoration: none;
-  cursor: pointer;
-  color: #909090;
-  text-align: center;
-  /* font-size: 1.20rem; */
-}
-.actives :hover {
-  background-color: #53d690;
-}
+  a {
+    text-decoration: none;
+    cursor: pointer;
+    color: #909090;
+    text-align: center;
+    font-size: .95rem;
+  }
+  .actives>a {
+     color: white;
+     background-color: #53d690;
+  }
+  .actives>a:hover {
+    color: white;
+    background-color: #53d690;
+  }
+  li>a:hover{
+    color: #53d690;
+  }
 </style>

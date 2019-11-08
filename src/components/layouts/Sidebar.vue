@@ -123,7 +123,7 @@
 
       <div class="normalInput">
         <input
-          type="text"
+          type="password"
           class="passwordN"
           maxlength="16"
           autocomplete="off"
@@ -143,32 +143,23 @@
         </a>
       </div>
 
-      <a href="##" class="fullBtnBlue">注册</a>
+      <a href="javascript:void(0);" class="fullBtnBlue">注册</a>
 
       <div class="oauth">
         第三方登录：
         <img
-          data-v-bb2e4c50
-          st:name="oauthBtn"
-          st:state="weibo"
           title="微博"
           alt="微博"
           src="https://b-gold-cdn.xitu.io/v3/static/img/weibo.fa758eb.svg"
           class="oauth-btn"
         />
         <img
-          data-v-bb2e4c50
-          st:name="oauthBtn"
-          st:state="github"
           title="GitHub"
           alt="GitHub"
           src="https://b-gold-cdn.xitu.io/v3/static/img/github.547dd8a.svg"
           class="oauth-btn"
         />
         <img
-          data-v-bb2e4c50
-          st:name="oauthBtn"
-          st:state="wechat"
           title="微信"
           alt="微信"
           src="https://b-gold-cdn.xitu.io/v3/static/img/wechat.e0ff124.svg"

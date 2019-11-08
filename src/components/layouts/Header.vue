@@ -8,7 +8,7 @@
           <span class="icon-bar"></span>
           <span class="icon-bar"></span>
         </button>
-        <div style="margin-right: 3rem; margin-left: 14rem;">
+        <div style="margin: .25rem 3rem 0 10rem">
           <svg
             t="1572257754915"
             class="icon"
@@ -84,7 +84,7 @@ export default {
   padding: 0 0.78rem;
 }
 .navbar-default .navbar-nav > li > a {
-  font-size: 1.33rem;
+  font-size: 1rem;
   color: #71777c;
 }
 
