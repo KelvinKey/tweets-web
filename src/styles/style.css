@@ -1851,7 +1851,7 @@ main {
 
 .comment-list {
     display: table;
-    padding-bottom: 30px;
+    padding-bottom: 14px;
 }
 
 .bg-img {
@@ -1936,7 +1936,7 @@ main {
 }
 
 .comment_box input {
-    width: 387px;
+    width: 328px;
     height: 40px;
     border: 1px solid #e5e5e5;
     background-color: #efefef;
@@ -1951,7 +1951,7 @@ main {
 .comment_box form button {
     float: right;
     color: #fff;
-    background-color: #e44d3a;
+    background-color: #53d690;
     height: 40px;
     padding: 0 10px;
     text-align: center;
