@@ -43,22 +43,22 @@ export default {
 </script>
 
 <style scoped>
-  a {
-    text-decoration: none;
-    cursor: pointer;
-    color: #909090;
-    text-align: center;
-    font-size: .95rem;
-  }
-  .actives>a {
-     color: white;
-     background-color: #53d690;
-  }
-  .actives>a:hover {
-    color: white;
-    background-color: #53d690;
-  }
-  li>a:hover{
-    color: #53d690;
-  }
+a {
+  text-decoration: none;
+  cursor: pointer;
+  color: #909090;
+  text-align: center;
+  font-size: 0.95rem;
+}
+.actives > a {
+  color: white;
+  background-color: #53d690;
+}
+.actives > a:hover {
+  color: white;
+  background-color: #53d690;
+}
+li > a:hover {
+  color: #53d690;
+}
 </style>

@@ -101,20 +101,215 @@
           <li class="btn_right">
             <a class="post_project" href="#" title>发布项目</a>
           </li>
-          <!-- <li>
-            <a class="post-jb active" href="#" title>发布工作</a>
-          </li>-->
         </ul>
       </div>
     </div>
 
     <div class="posts-section">
+      <div class="posty">
+        <div class="post-bar no-margin">
+          <div class="post_topbar">
+            <div class="usy-dt">
+              <img src="../../assets/usy2.png" alt />
+              <div class="usy-name">
+                <h3>Kelvin Liu</h3>
+                <span>
+                  <img src="../../assets/clock.png" alt />3 min ago
+                </span>
+              </div>
+            </div>
+            <div class="ed-opts">
+              <a href="#" title class="ed-opts-open">
+                <i class="la la-ellipsis-v"></i>
+              </a>
+              <ul class="ed-options">
+                <li>
+                  <a href="#" title>Edit Post</a>
+                </li>
+                <li>
+                  <a href="#" title>Unsaved</a>
+                </li>
+                <li>
+                  <a href="#" title>Unbid</a>
+                </li>
+                <li>
+                  <a href="#" title>Close</a>
+                </li>
+                <li>
+                  <a href="#" title>Hide</a>
+                </li>
+              </ul>
+            </div>
+          </div>
+          <div class="epi-sec">
+            <ul class="descp">
+              <li>
+                <img src="../../assets/icon8.png" alt />
+                <span>Epic Coder</span>
+              </li>
+              <li>
+                <img src="../../assets/icon9.png" alt />
+                <span>India</span>
+              </li>
+            </ul>
+            <ul class="bk-links">
+              <li>
+                <a href="#" title>
+                  <i class="la la-bookmark"></i>
+                </a>
+              </li>
+              <li>
+                <a href="#" title>
+                  <i class="la la-envelope"></i>
+                </a>
+              </li>
+            </ul>
+          </div>
+          <div class="job_descp">
+            <h3>测试测试测试</h3>
+            <ul class="job-dt">
+              <li>
+                <a href="#" title>Full Time</a>
+              </li>
+              <li>
+                <span>$30 / hr</span>
+              </li>
+            </ul>
+            <p>
+              Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam luctus hendrerit metus, ut ullamcorper quam finibus at. Etiam id magna sit amet...
+              <a
+                href="#"
+                title
+              >view more</a>
+            </p>
+            <ul class="skill-tags">
+              <li>
+                <a href="#" title>HTML</a>
+              </li>
+              <li>
+                <a href="#" title>PHP</a>
+              </li>
+              <li>
+                <a href="#" title>CSS</a>
+              </li>
+              <li>
+                <a href="#" title>Javascript</a>
+              </li>
+              <li>
+                <a href="#" title>Wordpress</a>
+              </li>
+            </ul>
+          </div>
+          <div class="job-status-bar">
+            <ul class="like-com">
+              <li>
+                <a href="#">
+                  <i class="la la-heart"></i> Like
+                </a>
+                <img src="../../assets/liked-img.png" alt />
+                <span>25</span>
+              </li>
+              <li>
+                <a href="#" title class="com" target="_blank">
+                  <img src="../../assets/com.png" alt /> Comment 15
+                </a>
+              </li>
+            </ul>
+            <a>
+              <i class="la la-eye"></i>Views 50
+            </a>
+          </div>
+        </div>
+        <!-- 回复 -->
+        <div class="comment-section">
+          <!--post-comment start-->
+          <div class="comment-sec">
+            <div class="post-comment">
+              <div class="cm_img">
+                <img src="../../assets/bg-img4.png" alt />
+              </div>
+              <div class="comment_box">
+                <form>
+                  <input type="text" placeholder="Post a comment" />
+                  <button type="submit">回复</button>
+                </form>
+              </div>
+            </div>
+            <!--post-comment end-->
+
+            <ul style=" padding-top: 1.5rem;">
+              <li style="border-top: 1px solid rgb(235, 235, 235);padding-top: 0.5rem;">
+                <div class="comment-list">
+                  <div class="bg-img">
+                    <img src="../../assets/bg-img1.png" alt />
+                  </div>
+                  <div class="comment">
+                    <h3>John Doe</h3>
+                    <span>
+                      <img src="../../assets/clock.png" alt /> 3 min ago
+                    </span>
+                    <p>Lorem ipsum dolor sit amet,</p>
+                    <a href="#" title class="active">
+                      <i class="fa fa-reply-all"></i>回复
+                    </a>
+                  </div>
+                </div>
+                <!--comment-list end-->
+                <ul>
+                  <li>
+                    <div class="comment-list">
+                      <div class="bg-img">
+                        <img src="../../assets/bg-img2.png" alt />
+                      </div>
+                      <div class="comment">
+                        <h3>John Doe</h3>
+                        <span>
+                          <img src="../../assets/clock.png" alt /> 3 min ago
+                        </span>
+                        <p>Hi John</p>
+                        <a href="#" title>
+                          <i class="fa fa-reply-all"></i>回复
+                        </a>
+                      </div>
+                    </div>
+                    <!--comment-list end-->
+                  </li>
+                </ul>
+              </li>
+              <li style="border-top: 1px solid rgb(235, 235, 235);padding-top: 0.5rem;">
+                <div class="comment-list">
+                  <div class="bg-img">
+                    <img src="../../assets/bg-img4.png" alt />
+                  </div>
+                  <div class="comment">
+                    <h3>Mack Hui</h3>
+                    <span>
+                      <img src="../../assets/clock.png" alt /> 3 min ago
+                    </span>
+                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam luctus hendrerit metus, ut ullamcorper quam finibus at.</p>
+                    <a href="#" title>
+                      <i class="fa fa-reply-all"></i>回复
+                    </a>
+                  </div>
+                </div>
+                <!--comment-list end-->
+              </li>
+              <li
+                style="display: block;padding-top: inherit;font-size: 0.848rem;text-align: center; color: #406599;border-top: 1px solid #ebebeb;cursor: pointer;"
+              >查看更多 ></li>
+            </ul>
+          </div>
+          <!--comment-sec end-->
+        </div>
+        <!--comment-section end-->
+      </div>
+
       <div class="post-bar">
         <div class="post_topbar">
           <div class="usy-dt">
             <img src="../../assets/usy2.png" alt />
             <div class="usy-name">
-              <h3>Kelvin Liu</h3>
+              <h3>John Doe</h3>
               <span>
                 <img src="../../assets/clock.png" alt />3 min ago
               </span>
@@ -208,13 +403,14 @@
               <a href="#">
                 <i class="la la-heart"></i> Like
               </a>
-              <img src="images/liked-img.png" alt />
+              <img src="../../assets/liked-img.png" alt />
               <span>25</span>
             </li>
             <li>
-              <a href="#" title class="com">
-                <img src="images/com.png" alt /> Comment 15
+              <a title class="com">
+                <img src="../../assets/com.png" alt /> Comment 15
               </a>
+              <input id="_1" type="checkbox" />
             </li>
           </ul>
           <a>
@@ -226,7 +422,7 @@
       <div class="post-bar">
         <div class="post_topbar">
           <div class="usy-dt">
-            <img src="../../assets/usy2.png" alt />
+            <img src="../../assets/us-pic.png" alt />
             <div class="usy-name">
               <h3>John Doe</h3>
               <span>
@@ -260,11 +456,11 @@
         <div class="epi-sec">
           <ul class="descp">
             <li>
-              <img src="images/icon8.png" alt />
+              <img src="../../assets/icon8.png" alt />
               <span>Epic Coder</span>
             </li>
             <li>
-              <img src="images/icon9.png" alt />
+              <img src="../../assets/icon9.png" alt />
               <span>India</span>
             </li>
           </ul>
@@ -322,126 +518,12 @@
               <a href="#">
                 <i class="la la-heart"></i> Like
               </a>
-              <img src="images/liked-img.png" alt />
+              <img src="../../assets/liked-img.png" alt />
               <span>25</span>
             </li>
             <li>
               <a href="#" title class="com">
-                <img src="images/com.png" alt /> Comment 15
-              </a>
-            </li>
-          </ul>
-          <a>
-            <i class="la la-eye"></i>Views 50
-          </a>
-        </div>
-      </div>
-
-      <div class="post-bar">
-        <div class="post_topbar">
-          <div class="usy-dt">
-            <img src="images/resources/us-pic.png" alt />
-            <div class="usy-name">
-              <h3>John Doe</h3>
-              <span>
-                <img src="images/clock.png" alt />3 min ago
-              </span>
-            </div>
-          </div>
-          <div class="ed-opts">
-            <a href="#" title class="ed-opts-open">
-              <i class="la la-ellipsis-v"></i>
-            </a>
-            <ul class="ed-options">
-              <li>
-                <a href="#" title>Edit Post</a>
-              </li>
-              <li>
-                <a href="#" title>Unsaved</a>
-              </li>
-              <li>
-                <a href="#" title>Unbid</a>
-              </li>
-              <li>
-                <a href="#" title>Close</a>
-              </li>
-              <li>
-                <a href="#" title>Hide</a>
-              </li>
-            </ul>
-          </div>
-        </div>
-        <div class="epi-sec">
-          <ul class="descp">
-            <li>
-              <img src="images/icon8.png" alt />
-              <span>Epic Coder</span>
-            </li>
-            <li>
-              <img src="images/icon9.png" alt />
-              <span>India</span>
-            </li>
-          </ul>
-          <ul class="bk-links">
-            <li>
-              <a href="#" title>
-                <i class="la la-bookmark"></i>
-              </a>
-            </li>
-            <li>
-              <a href="#" title>
-                <i class="la la-envelope"></i>
-              </a>
-            </li>
-          </ul>
-        </div>
-        <div class="job_descp">
-          <h3>Senior Wordpress Developer</h3>
-          <ul class="job-dt">
-            <li>
-              <a href="#" title>Full Time</a>
-            </li>
-            <li>
-              <span>$30 / hr</span>
-            </li>
-          </ul>
-          <p>
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam luctus hendrerit metus, ut ullamcorper quam finibus at. Etiam id magna sit amet...
-            <a
-              href="#"
-              title
-            >view more</a>
-          </p>
-          <ul class="skill-tags">
-            <li>
-              <a href="#" title>HTML</a>
-            </li>
-            <li>
-              <a href="#" title>PHP</a>
-            </li>
-            <li>
-              <a href="#" title>CSS</a>
-            </li>
-            <li>
-              <a href="#" title>Javascript</a>
-            </li>
-            <li>
-              <a href="#" title>Wordpress</a>
-            </li>
-          </ul>
-        </div>
-        <div class="job-status-bar">
-          <ul class="like-com">
-            <li>
-              <a href="#">
-                <i class="la la-heart"></i> Like
-              </a>
-              <img src="images/liked-img.png" alt />
-              <span>25</span>
-            </li>
-            <li>
-              <a href="#" title class="com">
-                <img src="images/com.png" alt /> Comment 15
+                <img src="../../assets/com.png" alt /> Comment 15
               </a>
             </li>
           </ul>
@@ -458,6 +540,11 @@
 
 <style  lang="scss">
 @import "../../styles/style.css";
+@import "../../styles/line-awesome.css";
+
+.posty {
+  margin-bottom: 1.5rem;
+}
 .post-topbar > textarea {
   padding: 15px;
   height: 100px;
@@ -481,5 +568,8 @@
   color: #c2c2c2;
   font-size: 13px;
   padding-left: 28px;
+}
+.com:active {
+  cursor: pointer;
 }
 </style>

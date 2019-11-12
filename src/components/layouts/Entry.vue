@@ -1,11 +1,19 @@
 <template>
   <div class="navbar-right">
-    <div class="mdui-container">
+    <div class="mdui-container" style="line-height: 3.1254rem;width:100%;">
       <button
         class="mdui-btn mdui-color-theme-accent mdui-ripple"
         mdui-dialog="{target: '#example-1'}"
+        style="font-size: 16px;color:#53d690;min-width: 40px;"
       >登录</button>
 
+      <button
+        class="mdui-btn mdui-color-theme-accent mdui-ripple"
+        mdui-dialog="{target: '#example-2'}"
+        style="font-size: 16px;color:#53d690;min-width: 40px;"
+      >注册</button>
+
+      <!-- 登录 -->
       <div class="mdui-dialog" id="example-1">
         <div class="mdui-dialog-title" style="font-size: 1.5rem;">登录</div>
         <div class="mdui-dialog-content">
@@ -41,6 +49,82 @@
             <span>没有账号？</span>
             <a href="#">注册</a>
             <a href="#" style="float: right;">忘记密码</a>
+          </div>
+
+          <div class="oauth">
+            <div>第三方账号登录：</div>
+            <div class="oauth-bg">
+              <img
+                title="微博"
+                alt="微博"
+                src="https://b-gold-cdn.xitu.io/v3/static/img/weibo.fa758eb.svg"
+                class="oauth-btn"
+              />
+            </div>
+            <div class="oauth-bg">
+              <img
+                title="GitHub"
+                alt="GitHub"
+                src="https://b-gold-cdn.xitu.io/v3/static/img/github.547dd8a.svg"
+                class="oauth-btn"
+              />
+            </div>
+            <div class="oauth-bg">
+              <img
+                title="微信"
+                alt="微信"
+                src="https://b-gold-cdn.xitu.io/v3/static/img/wechat.e0ff124.svg"
+                class="oauth-btn"
+              />
+            </div>
+          </div>
+
+          <div class="agreement">
+            注册登录即表示同意
+            <a href="##" target="_blank">用户协议</a>、
+            <a href="##" target="_blank">隐私政策</a>
+          </div>
+        </div>
+      </div>
+
+      <!-- 注册-->
+      <div class="mdui-dialog" id="example-2">
+        <div class="mdui-dialog-title" style="font-size: 1.5rem;">注册</div>
+        <div class="mdui-dialog-content">
+          <div class="normalInput">
+            <input type="text" class="phone" maxlength="11" placeholder="手机号码" />
+          </div>
+
+          <div class="normalInput">
+            <input type="text" class="phone" maxlength="11" placeholder="手机号码" />
+          </div>
+
+          <div class="normalInput">
+            <input
+              type="password"
+              class="passwordN"
+              maxlength="16"
+              autocomplete="off"
+              placeholder="密码（不少于6位）"
+            />
+
+            <input
+              type="password"
+              class="password1N"
+              maxlength="16"
+              autocomplete="off"
+              placeholder="密码（不少于6位）"
+            />
+
+            <a id="pwdBtnN" href="##" class="pwdBtnShowN" isshow="false">
+              <i class="i_icon"></i>
+            </a>
+          </div>
+
+          <a href="javascript:void(0);" class="fullBtnBlue">登录</a>
+
+          <div style="font-size: 0.167rem;margin: 0 0.7rem 0;">
+            <a href="#" style="padding-left: 5.5rem;">已有账号登录</a>
           </div>
 
           <div class="oauth">
@@ -125,7 +209,7 @@ export default {
 }
 .agreement {
   margin-left: 0.78rem;
-  margin-top: 1.2rem;
+  margin-top: 0.7rem;
   font-size: 0.767rem;
   line-height: 1.5;
   color: #767676;
@@ -203,5 +287,4 @@ export default {
   float: left;
   display: none;
 }
-
 </style>
