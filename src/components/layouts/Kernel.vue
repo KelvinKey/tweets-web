@@ -152,29 +152,9 @@
                 <span>India</span>
               </li>
             </ul>
-            <ul class="bk-links">
-              <li>
-                <a href="#" title>
-                  <i class="la la-bookmark"></i>
-                </a>
-              </li>
-              <li>
-                <a href="#" title>
-                  <i class="la la-envelope"></i>
-                </a>
-              </li>
-            </ul>
           </div>
           <div class="job_descp">
             <h3>测试测试测试</h3>
-            <ul class="job-dt">
-              <li>
-                <a href="#" title>Full Time</a>
-              </li>
-              <li>
-                <span>$30 / hr</span>
-              </li>
-            </ul>
             <p>
               Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam luctus hendrerit metus, ut ullamcorper quam finibus at. Etiam id magna sit amet...
               <a
@@ -184,19 +164,7 @@
             </p>
             <ul class="skill-tags">
               <li>
-                <a href="#" title>HTML</a>
-              </li>
-              <li>
-                <a href="#" title>PHP</a>
-              </li>
-              <li>
-                <a href="#" title>CSS</a>
-              </li>
-              <li>
-                <a href="#" title>Javascript</a>
-              </li>
-              <li>
-                <a href="#" title>Wordpress</a>
+                <a href="#" title>上班摸鱼</a>
               </li>
             </ul>
           </div>
@@ -296,7 +264,11 @@
               </li>
               <li
                 style="display: block;padding-top: inherit;font-size: 0.848rem;text-align: center; color: #406599;border-top: 1px solid #ebebeb;cursor: pointer;"
-              >查看更多 ></li>
+              >
+                <router-link to="/Details">
+                  <button>查看更多 ></button>
+                </router-link>
+              </li>
             </ul>
           </div>
           <!--comment-sec end-->
@@ -349,29 +321,9 @@
               <span>India</span>
             </li>
           </ul>
-          <ul class="bk-links">
-            <li>
-              <a href="#" title>
-                <i class="la la-bookmark"></i>
-              </a>
-            </li>
-            <li>
-              <a href="#" title>
-                <i class="la la-envelope"></i>
-              </a>
-            </li>
-          </ul>
         </div>
         <div class="job_descp">
           <h3>Senior Wordpress Developer</h3>
-          <ul class="job-dt">
-            <li>
-              <a href="#" title>Full Time</a>
-            </li>
-            <li>
-              <span>$30 / hr</span>
-            </li>
-          </ul>
           <p>
             Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam luctus hendrerit metus, ut ullamcorper quam finibus at. Etiam id magna sit amet...
             <a
@@ -381,19 +333,7 @@
           </p>
           <ul class="skill-tags">
             <li>
-              <a href="#" title>HTML</a>
-            </li>
-            <li>
-              <a href="#" title>PHP</a>
-            </li>
-            <li>
-              <a href="#" title>CSS</a>
-            </li>
-            <li>
-              <a href="#" title>Javascript</a>
-            </li>
-            <li>
-              <a href="#" title>Wordpress</a>
+              <a href="#" title>摸鱼</a>
             </li>
           </ul>
         </div>
@@ -464,29 +404,9 @@
               <span>India</span>
             </li>
           </ul>
-          <ul class="bk-links">
-            <li>
-              <a href="#" title>
-                <i class="la la-bookmark"></i>
-              </a>
-            </li>
-            <li>
-              <a href="#" title>
-                <i class="la la-envelope"></i>
-              </a>
-            </li>
-          </ul>
         </div>
         <div class="job_descp">
           <h3>Senior Wordpress Developer</h3>
-          <ul class="job-dt">
-            <li>
-              <a href="#" title>Full Time</a>
-            </li>
-            <li>
-              <span>$30 / hr</span>
-            </li>
-          </ul>
           <p>
             Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam luctus hendrerit metus, ut ullamcorper quam finibus at. Etiam id magna sit amet...
             <a
@@ -496,19 +416,7 @@
           </p>
           <ul class="skill-tags">
             <li>
-              <a href="#" title>HTML</a>
-            </li>
-            <li>
-              <a href="#" title>PHP</a>
-            </li>
-            <li>
-              <a href="#" title>CSS</a>
-            </li>
-            <li>
-              <a href="#" title>Javascript</a>
-            </li>
-            <li>
-              <a href="#" title>Wordpress</a>
+              <a href="#" title>摸</a>
             </li>
           </ul>
         </div>
