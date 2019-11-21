@@ -167,8 +167,26 @@
 </template>
 
 <script>
+import { apiLoadTest } from "../http/test"; // 导入我们的api接口
 export default {
-  name: "Entry"
+  name: "Entry",
+  name: "Address",
+  created() {
+    this.onLoad();
+  },
+  methods: {
+    // 获取数据
+    onLoad() {
+      // 调用api接口，并且提供了两个参数
+      apiLoadTest({
+        username: "测试",
+        password: "cs"
+      }).then(res => {
+        console.log(res);
+        // 获取数据成功后的其他操作
+      });
+    }
+  }
 };
 </script>
 

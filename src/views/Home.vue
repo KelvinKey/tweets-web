@@ -3,18 +3,18 @@
     <Message :show.sync="msgShow" :type="msgType" :msg="msg" />
 
     <!-- 左侧导航栏 -->
-    <!-- <Navigator /> -->
+    <Navigator />
 
     <!-- 动弹列表 -->
-    <div class="col-md-8 main-col topics-index">
+    <div class="col-md-7 main-col topics-index">
       <div class="panel-body remove-padding-horizontal">
-        <!-- <Kernel /> -->
+        <Kernel />
 
-        <Details />
+        <!-- <Details /> -->
       </div>
     </div>
 
-    <!-- <Sidebar /> -->
+    <Sidebar />
   </div>
 </template>
 
