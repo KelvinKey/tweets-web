@@ -4,7 +4,7 @@
 import {get, post } from './axios'
 
 // 用户登录
-export const apiLoadTest = a => post('/auth/login', c);
+export const apiLoadTest = a => post('/auth/login', a);
 
 // 用户注册
 export const test1 = b => post('/auth/register', b);
