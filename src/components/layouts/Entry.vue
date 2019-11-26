@@ -18,7 +18,7 @@
         <div class="mdui-dialog-title" style="font-size: 1.5rem;">登录</div>
         <div class="mdui-dialog-content">
           <div class="normalInput">
-            <input type="text" class="phone" maxlength="11" placeholder="手机号码" />
+            <input type="text" class="phone" maxlength="11" placeholder="手机号码"  v-model="INP_Phone"/>
           </div>
 
           <div class="normalInput">
@@ -28,6 +28,7 @@
               maxlength="16"
               autocomplete="off"
               placeholder="密码（不少于6位）"
+               ref="INP_PWD"
             />
 
             <input
@@ -36,6 +37,7 @@
               maxlength="16"
               autocomplete="off"
               placeholder="密码（不少于6位）"
+             
             />
 
             <a id="pwdBtnN" href="##" class="pwdBtnShowN" isshow="false">
@@ -43,7 +45,7 @@
             </a>
           </div>
 
-          <a href="javascript:void(0);" class="fullBtnBlue">登录</a>
+          <a v-on:click="doChange" class="fullBtnBlue">登录</a>
 
           <div style="font-size: 0.167rem;margin: 0 0.7rem 0;">
             <span>没有账号？</span>
@@ -176,15 +178,17 @@ export default {
   },
   methods: {
     // 获取数据
-    onLoad() {
+    onLoad() {},
+    doChange: () => {     
+      console.log(this)
       // 调用api接口，并且提供了两个参数
-      apiLoadTest({
-        username: "测试",
-        password: "cs"
-      }).then(res => {
-        console.log(res);
-        // 获取数据成功后的其他操作
-      });
+      // apiLoadTest({
+      //   username: "测试",
+      //   password: "cs"
+      // }).then(res => {
+      //   alert(res);
+      //   // 获取数据成功后的其他操作
+      // });
     }
   }
 };
