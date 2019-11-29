@@ -3,116 +3,103 @@
  */
 import axios from 'axios';
 import QS from 'qs';
-// import { Toast } from 'vant';
+import { Toast } from 'vant';
 // import store from '../store/index'
 
+/**
+ * 请求超时时间
+ */
+// axios.defaults.timeout = 10000;
 
-// 请求超时时间
-axios.defaults.timeout = 10000;
-
-// post请求头
+/**
+ * post请求头
+ */
 axios.defaults.headers.post['Content-Type'] = 'application/x-www-form-urlencoded;charset=UTF-8';
 
+/**
+ * 跨域配置
+ */
 axios.defaults.baseURL = "/api";
 
-// 请求拦截器
-axios.interceptors.request.use(
-    config => {
-        const token = store.state.token;
-        token && (config.headers.Authorization = token);
-        return config;
-    },
-    error => {
-        return Promise.error(error);
-    })
+// 拦截请求
+// axios.interceptors.request.use(function(config) {
+//     Toast.loading('加载中', 0);
+//     return config
+// });
 
-// 响应拦截器
-axios.interceptors.response.use(
-    response => {
-        if (response.status === 200) {
-            return Promise.resolve(response);
-        } else {
-            return Promise.reject(response);
-        }
+// // 拦截相应
+// axios.interceptors.response.use(function(config) {
+//     Toast.hide();
+//     return config
+// });
+
+/** 
+ * definition
+ * @param {String} url [请求的url地址] 
+ * @param {Object} params [请求时携带的参数]
+ * @param {token} token [请求时携带token]
+ */
+const api = {
+
+    get: (url, params, token) => {
+        return api.apiAxios('GET', url, params, token);
     },
-    // 服务器状态码不是  200  
-    error => {
-        if (error.response.status) {
-            switch (error.response.status) {
-                case 401:
-                    router.replace({
-                        path: '/login',
-                        query: { redirect: router.currentRoute.fullPath }
-                    });
-                    break;
-                case 403:
-                    Toast({
-                        message: '登录过期，请重新登录',
-                        duration: 1000,
-                        forbidClick: true
-                    });
-                    localStorage.removeItem('token');
-                    store.commit('loginSuccess', null);
-                    setTimeout(() => {
-                        router.replace({
-                            path: '/login',
-                            query: {
-                                redirect: router.currentRoute.fullPath
-                            }
-                        });
-                    }, 1000);
-                    break;
-                    // 404请求不存在                
-                case 404:
-                    Toast({
-                        message: '网络请求不存在',
-                        duration: 1500,
-                        forbidClick: true
-                    });
-                    break;
-                    // 其他错误，直接抛出错误提示                
-                default:
-                    Toast({
-                        message: error.response.data.message,
-                        duration: 1500,
-                        forbidClick: true
-                    });
-            }
-            return Promise.reject(error.response);
+
+    post: (url, params) => {
+        return api.apiAxios('POST', url, params, token);
+    },
+
+    put: (url, params) => {
+        return api.apiAxios('PUT', url, params, token);
+    },
+
+    delete: (url, params) => {
+        return api.apiAxios('DELETE', url, params, token);
+    },
+    apiAxios: (method, url, params, token) => {
+        //return new Promise((resolve, reject) => {
+
+        return axios({
+            method: method,
+            //拼接参数
+            url: method === 'GET' || method === 'DELETE' ? api.queryString(url, params) : url,
+            data: method === 'POST' || method === 'PUT' ? QS.stringify(params) : null,
+            baseURL: root,
+            timeout: 10000,
+            headers: { Authorization: `Bearer ${token}` },
+            withCredentials: false
+        });
+
+
+        // axios.get(url, {
+        //         params: params
+        //     })
+        //     .then(res => {
+        //         resolve(res.data);
+        //     })
+        //     .catch(err => {
+        //         reject(err.data)
+        //     })
+        //});
+    },
+    // 根据name获取地址栏的参数值
+    getQueryString(name) {
+        let reg = new RegExp(`(^|&)${name}=([^&]*)(&|$)`)
+        let hash = window.location.hash
+        let search = hash.split('?')
+        let r = search[1] && search[1].match(reg)
+        if (r != null) return r[2];
+        return ''
+    },
+    // 拼接参数至url
+    queryString(url, query) {
+        let str = []
+        for (let key in query) {
+            str.push(key + '=' + query[key])
         }
+        let paramStr = str.join('&')
+        return paramStr ? `${url}?${paramStr}` : url
     }
-);
-/** 
- * get方法，对应get请求 
- * @param {String} url [请求的url地址] 
- * @param {Object} params [请求时携带的参数] 
- */
-export function get(url, params) {
-    return new Promise((resolve, reject) => {
-        axios.get(url, {
-                params: params
-            })
-            .then(res => {
-                resolve(res.data);
-            })
-            .catch(err => {
-                reject(err.data)
-            })
-    });
-}
-/** 
- * post方法，对应post请求 
- * @param {String} url [请求的url地址] 
- * @param {Object} params [请求时携带的参数] 
- */
-export function post(url, params) {
-    return new Promise((resolve, reject) => {
-        axios.post(url, QS.stringify(params))
-            .then(res => {
-                resolve(res.data);
-            })
-            .catch(err => {
-                reject(err.data)
-            })
-    });
-}
+};
+
+module.exports = api;
