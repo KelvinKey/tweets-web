@@ -20,15 +20,15 @@
 
 <style lang="scss">
   $container-large-desktop: 1200px;
-  $btn-primary-bg: #00b5ad;
-  $btn-primary-border: #00b5ad;
-  $label-primary-bg: #00b5ad;
-  $pagination-active-bg: #00b5ad;
-  $pagination-active-border: #00b5ad;
-  $pagination-color: #00b5ad;
-  $input-border-focus: #00b5ad;
-  $link-color: #12c4c5;
-  $link-hover-color: #22ddde;
+  $btn-primary-bg: #409EFF;
+  $btn-primary-border: #409EFF;
+  $label-primary-bg: #409EFF;
+  $pagination-active-bg: #409EFF;
+  $pagination-active-border: #409EFF;
+  $pagination-color: #409EFF;
+  $input-border-focus: #409EFF;
+  $link-color: #2A8DFF;
+  $link-hover-color: #2F8CFF;
   $icon-font-path: "~bootstrap-sass/assets/fonts/bootstrap/";
   $fa-font-path: "~font-awesome/fonts/";
 

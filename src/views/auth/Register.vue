@@ -23,7 +23,7 @@
             <label class="control-label">确认密码</label>
             <input  v-model.trim="confirmPassword" v-validator.required="{ target: '#password' }" type="password" class="form-control" placeholder="请填写确认密码">
           </div>
-          <button type="submit" class="btn btn-lg btn-success btn-block" @click="register">
+          <button type="submit" class="btn btn-lg btn-primary btn-block" @click="register">
             <i class="fa fa-btn fa-hand-o-right"></i> 下一步
           </button>
         </div>

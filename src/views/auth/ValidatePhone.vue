@@ -14,7 +14,7 @@
               <button @click="sendVerificationCode" class="btn btn-info" style="margin-left: 8px;">发送短信验证码</button>
             </div>
           </div>
-          <button type="submit" class="btn btn-lg btn-success btn-block" @click="register">
+          <button type="submit" class="btn btn-lg btn-primary btn-block" @click="register">
             <i class="fa fa-btn fa-user-plus"></i> 注 册
           </button>
         </div>
