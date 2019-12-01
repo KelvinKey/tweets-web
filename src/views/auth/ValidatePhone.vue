@@ -46,12 +46,6 @@
       this.loadCaptcha()
     },
     beforeRouteEnter (to, from, next) {
-      to.params.user = {
-        phone: '18598270534',
-        username: 'hexianghui15',
-        password: '123456'
-      }
-
       to.params.user === undefined && next({'name': 'Register'})
       next()
     },
