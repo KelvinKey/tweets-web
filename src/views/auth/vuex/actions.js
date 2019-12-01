@@ -6,7 +6,7 @@ import * as TYPES from './mutations-types'
 export const attemptLogin = ({ dispatch }, payload) =>
   http.post('auth/login', payload)
     .then(data => {
-      dispatch('setToken', data.token)
+      dispatch('setToken', data.access_token)
 
       return Promise.resolve()
     })

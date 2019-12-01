@@ -16,7 +16,7 @@
       </li>
     </ul>
     <div v-else class="nav navbar-nav github-login auth">
-      <a href="#" class="auth-btn">登录</a>
+      <router-link to="/auth/login" class="auth-btn">登录</router-link>
       <router-link to="/auth/register" class="auth-btn">注册</router-link>
     </div>
   </div>
