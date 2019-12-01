@@ -99,9 +99,6 @@
     font-weight: 500;
     color: #8a93a0;
   }
-  .action-box div:not(:last-child) {
-    border-right: 1px solid #ebebeb;
-  }
   .action {
     flex: 1 1 33.333%;
     display: flex;
@@ -111,6 +108,16 @@
     height: 100%;
     cursor: pointer;
     user-select: none;
+  }
+  .action:not(:last-child):after {
+    content: "";
+    position: absolute;
+    top: 50%;
+    right: 0;
+    margin-top: -.7rem;
+    width: 1px;
+    height: 1.5rem;
+    background-color: #ebebeb;
   }
   .action span {
     margin-left: 5px;
