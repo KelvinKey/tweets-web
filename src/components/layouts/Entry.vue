@@ -2,7 +2,7 @@
   <div class="navbar-right">
     <ul v-if="isLogged" class="nav navbar-nav github-login">
       <li>
-        <a href="javascript:;">
+        <a v-dropdown href="javascript:;">
           <span v-if="currentUser">
             <img v-if="currentUser.avatar" :src="currentUser.avatar" class="avatar-topnav">
             <span v-if="currentUser.username">{{ currentUser.username }}</span>
@@ -11,7 +11,7 @@
           <span class="caret"></span>
         </a>
         <ul class="dropdown-menu">
-          <li><a href="#"><i class="fa fa-sign-out text-md"></i>退出</a></li>
+          <li><a @click="logout" href="javascript:;"><i class="fa fa-sign-out text-md"></i>退出</a></li>
         </ul>
       </li>
     </ul>
@@ -29,6 +29,12 @@
     name: 'Entry',
     computed: {
       ...mapGetters(['currentUser', 'isLogged'])
+    },
+    methods: {
+      logout () {
+        this.$store.dispatch('logout')
+        this.$message.success('退出成功')
+      }
     }
   }
 </script>

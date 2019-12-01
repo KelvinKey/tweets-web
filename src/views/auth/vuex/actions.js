@@ -22,10 +22,9 @@ export const attemptRegister = ({ dispatch }, payload) =>
     .then(() => dispatch('loadUser'))
 
 export const logout = ({ dispatch }) => {
-  return ls
-    .remove('access_token')
-    .then(dispatch('setToken', null))
-    .then(dispatch('setUser', {}))
+  ls.remove('token')
+  dispatch('setToken', null)
+  dispatch('setUser', null)
 }
 
 export const setUser = ({ commit }, user) => {
@@ -70,4 +69,4 @@ export const loadUser = ({ dispatch }) =>
   http.get('user/me')
     // store user's data
     .then(user => dispatch('setUser', user))
-    // .catch(logout)
+    .catch(logout)
