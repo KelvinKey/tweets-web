@@ -8,6 +8,9 @@ body {
   font-family: NotoSansHans-Regular,AvenirNext-Regular,arial,Hiragino Sans GB,"Microsoft Yahei","Hiragino Sans GB","WenQuanYi Micro Hei",sans-serif;
   background: #f0f2f5;
 }
+a {
+  text-decoration: none;
+}
 .navbar-default{
   background-color: #fff;
 }
@@ -164,10 +167,6 @@ ul.list {
   margin: 0 auto -80px;
   /* Pad bottom by footer height */
   padding: 0 0 0px;
-
-  .avatar {
-    padding: 3px;
-  }
 }
 
 .meta, .operate {
@@ -247,9 +246,8 @@ ul.list {
   margin-bottom: 0px;
   .list-group-item{
     padding: 0px 15px;
-    border: none;
-    margin-bottom: 0px;
-    border-bottom: 1px solid #f2f2f2;
+    border: 1px solid #f2f2f2;
+    margin-bottom: 8px;
   }
   .list-group-item:first-child {
     border-top-left-radius: 0px;
@@ -476,7 +474,7 @@ embed {
 }
 
 
-.replies-index {
+.tweets-index {
   .operate a {
     color: #d0d0d0;
     display: inline-block;
@@ -959,7 +957,6 @@ div#preview-box {
 .users-show .user-info-nav { border-bottom: 1px solid #ddd;}
 .users-show .dl-horizontal dt, .users-show .dl-horizontal dd { padding-top: 5px;}
 .users-show .dl-horizontal .label { position: static;}
-.replies-index .list-group-item.media { padding-bottom: 6px;}
 .topic-list .media-heading .label { position: relative; top: -1px;}
 
 // banner
@@ -987,13 +984,13 @@ div#preview-box {
   .banner-container .item { margin-bottom: 10px;}
   .topic-list .list-group-item.media .infos { margin-top: 10px; margin-left: 56px;}
   div.topics-index .topic-list .media-heading { font-size: 14px;}
-  .replies-index .list-group-item.media { padding-bottom: 10px;}
-  .replies-index .list-group-item.media .infos, div.replies-index .list-group-item.media .avatar img { margin-top: 6px;}
+  .tweets-index .list-group-item.media { padding-bottom: 10px;}
+  .tweets-index .list-group-item.media .infos, div.tweets-index .list-group-item.media .avatar img { margin-top: 6px;}
 }
 
 .avatar-middle {
-  width: 50px;
-  height: 50px;
+  width: 45px;
+  height: 45px;
 }
 
 .avatar-small {
@@ -1008,12 +1005,12 @@ div#preview-box {
 }
 
 .list-group-item.media .infos {
-  margin-top: 16px;
+  margin-top: 12px;
   margin-left: 66px;
 }
 
-.replies-index .list-group-item.media .avatar img {
-  margin-top: 16px;
+.tweets-index .list-group-item.media .avatar img {
+  margin-top: 10px;
 }
 
 .navbar-default {
@@ -1670,7 +1667,7 @@ a {
     margin-bottom: 8px;
   }
 
-  .replies-index .list-group-item.media .avatar img {
+  .tweets-index .list-group-item.media .avatar img {
     margin-top: -6px;
   }
 
@@ -2461,13 +2458,14 @@ hr {
   }
 }
 
-.replies {
+.tweets {
   .list-group-item.media .infos {
-    margin-left: 90px;
+    margin-left: 70px;
   }
   .avatar-container {
     text-align: center;
-    width: 80px;
+    width: 60px;
+    padding-left: 15px;
   }
   .label.role {
     padding: .1em .2em .1em;
@@ -2545,7 +2543,7 @@ hr {
   }
 }
 
-.replies-index.replies {
+.tweets-index.tweets {
   position: relative;
   .order-links {
     position: absolute;
@@ -2655,4 +2653,9 @@ hr {
     border: 0;
     border-top: 1px solid #dde2e8;
   }
+}
+
+.dot {
+  margin: 0 .5em;
+  display: inline;
 }

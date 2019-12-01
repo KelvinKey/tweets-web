@@ -17,7 +17,7 @@
       <div id="top-navbar-collapse" :class="['collapse', 'navbar-collapse', { in: showCollapsedNav }]">
         <ul class="nav navbar-nav">
           <li :key="item" v-for="(item, index) in navList" :class="{ active: index === activeNavIndex }">
-            <a href="#" @click="changeNavIndex(index)">{{ item }}</a>
+            <a href="/" @click="changeNavIndex(index)">{{ item }}</a>
           </li>
         </ul>
 
