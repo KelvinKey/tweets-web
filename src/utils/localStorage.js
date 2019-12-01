@@ -9,10 +9,11 @@ export default {
     ls.setItem(name, value)
   },
   get (name) {
+    let value = ls.getItem(name)
     try {
-      return JSON.parse(ls.getItem(name))
+      return JSON.parse(value)
     } catch (e) {
-      return null
+      return value
     }
   },
   remove (name) {

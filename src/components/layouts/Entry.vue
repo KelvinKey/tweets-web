@@ -1,22 +1,49 @@
 <template>
   <div class="navbar-right">
-    <div class="nav navbar-nav github-login">
-      <a href="#" class="btn btn-default login-btn">
-        <i class="fa fa-user"></i> 登 录
-      </a>
-      <router-link to="/auth/register" class="btn btn-default login-btn">
-        <i class="fa fa-user-plus"></i> 注 册
-      </router-link>
+    <ul v-if="isLogged" class="nav navbar-nav github-login">
+      <li>
+        <a href="javascript:;">
+          <span v-if="currentUser">
+            <img v-if="currentUser.avatar" :src="currentUser.avatar" class="avatar-topnav">
+            <span v-if="currentUser.username">{{ currentUser.username }}</span>
+          </span>
+          <span v-else>佚名</span>
+          <span class="caret"></span>
+        </a>
+        <ul class="dropdown-menu">
+          <li><a href="#"><i class="fa fa-sign-out text-md"></i>退出</a></li>
+        </ul>
+      </li>
+    </ul>
+    <div v-else class="nav navbar-nav github-login auth">
+      <a href="#" class="auth-btn">登录</a>
+      <router-link to="/auth/register" class="auth-btn">注册</router-link>
     </div>
   </div>
 </template>
 
 <script>
+  import { mapGetters } from 'vuex'
+
   export default {
-    name: 'Entry'
+    name: 'Entry',
+    computed: {
+      ...mapGetters(['currentUser', 'isLogged'])
+    }
   }
 </script>
 
 <style scoped>
+  .auth {
+    line-height: 50px;
+  }
 
+ .auth-btn {
+   color: #007fff;
+   float: none;
+   padding: 15px 15px 9px;
+   line-height: 26px;
+   text-decoration: none;
+   font-size: 15px;
+ }
 </style>

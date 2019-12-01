@@ -4,6 +4,7 @@ import Vue from 'vue'
 import App from './App'
 import router from './router'
 import http from './utils/http'
+import store from './vuex'
 import './directives'
 import { Message } from 'element-ui'
 import 'element-ui/lib/theme-chalk/icon.css'
@@ -13,10 +14,14 @@ Vue.config.productionTip = false
 
 Vue.prototype.$http = http
 Vue.prototype.$message = Message
+Vue.prototype.$user = () => {
+  return store.getters.currentUser
+}
 
 /* eslint-disable no-new */
 new Vue({
   el: '#app',
+  store,
   router,
   components: { App },
   template: '<App/>'

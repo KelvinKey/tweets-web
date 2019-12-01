@@ -6,7 +6,7 @@
           <div class="form-group">
             <label class="control-label">验证手机号</label>
             <div style="margin: 10px 0;">
-              <input v-model="captcha.code" v-validator:input.required="{ regex: /^[a-zA-Z\-]+\w*\s?\w\d*$/, error: '请输入图片验证码' }" type="text" style="width: 55%;float: left" ref="captchaInput" class="form-control" placeholder="请输入图片验证码">
+              <input v-model="captcha.code" v-validator:input.required="{ regex: /^[a-zA-Z\d]+$/, error: '请输入图片验证码' }" type="text" style="width: 55%;float: left" ref="captchaInput" class="form-control" placeholder="请输入图片验证码">
               <a @click.prevent="loadCaptcha" href="#"><img class="captcha" :src="captcha.content"></a>
             </div>
             <div class="form-inline">
@@ -25,7 +25,7 @@
 
 <script>
   import validator from '../../directives/validator'
-  import ls from '../../utils/localStorage'
+  import { mapActions } from 'vuex'
 
   export default {
     name: 'Register',
@@ -46,17 +46,24 @@
       this.loadCaptcha()
     },
     beforeRouteEnter (to, from, next) {
+      to.params.user = {
+        phone: '18598270534',
+        username: 'hexianghui15',
+        password: '123456'
+      }
+
       to.params.user === undefined && next({'name': 'Register'})
       next()
     },
     methods: {
+      ...mapActions(['attemptRegister']),
       loadCaptcha () {
         this.$http
           .post('auth/captcha?_=' + Math.random(), {phone: this.user.phone})
           .then(response => {
             this.captcha = response
             this.captcha.code = ''
-          })
+          }).catch(() => this.$router.push({'name': 'Register'}))
       },
       sendVerificationCode () {
         if (this.captcha.code.length < 4) {
@@ -71,10 +78,6 @@
         this.$http
           .post('auth/verification', data)
           .then(response => {
-            if (response.key === undefined) {
-              return validator.showError(this.$refs['captchaInput'], response.message)
-            }
-
             this.verificationKey = response.key
             this.$message.success('短信验证码发送成功～')
           })
@@ -86,7 +89,7 @@
           target.canSubmit && this.submit()
         })
       },
-      submit () {
+      async submit () {
         let data = {
           'verification_key': this.verificationKey,
           'verification_code': this.verificationCode
@@ -94,17 +97,10 @@
 
         Object.assign(data, this.user)
 
-        this.$http
-          .post('auth/register', data)
-          .then(response => {
-            if (response.token === undefined) {
-              return validator.showError(this.$refs['verificationInput'], response.message)
-            }
+        await this.attemptRegister(data)
 
-            ls.set('access_token', response.token)
-            this.$message.success('注册成功！')
-            this.$router.push('/')
-          })
+        this.$message.success('注册成功！')
+        this.$router.push('/')
       }
     }
   }

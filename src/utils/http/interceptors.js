@@ -28,17 +28,6 @@ export default http => {
 
       switch (error.response.status) {
         case 422:
-          let data = error.response.data.errors
-          let content = ''
-
-          Object.keys(data).map(function (key) {
-            let value = data[key]
-
-            content = value[0]
-          })
-
-          Message.error(content)
-          break
         case 403:
           Message.error(error.response.data.message || '您没有此操作权限！')
           break
