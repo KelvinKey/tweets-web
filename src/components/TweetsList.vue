@@ -16,13 +16,19 @@
                 </a>
                 <div class="meta">
                   <abbr>{{ tweet.user.intro }}</abbr>
-                  <div class="dot">·</div>
+                  <div class="dot" v-if="tweet.user.intro ==null">·</div>
                   <abbr class="timeago">
                     {{ tweet.created_at | moment('from', { startOf: 'second' }) }}
                   </abbr>
                 </div>
               </div>
               <div class="preview media-body markdown-reply markdown-body" v-html="tweet.content"></div>
+              <div>  <ul class="comments-flex">
+                <li v-for ="item in tweet.images" :key="item">
+                  <img :src="item" alt="tweet.images" class="comments-image">
+                </li>
+              </ul></div>
+              <div class="flex-clear"> <a class="topic-title" v-if="tweet.topic.name !=null">{{ tweet.topic.name}}</a></div>
             </div>
             <div class="action-box">
               <div class="action">
@@ -38,7 +44,7 @@
           </li>
         </ul>
         <div v-show="!tweets.data" class="empty-block">
-          暂无评论~~
+          暂无动弹~~
         </div>
       </div>
     </div>
@@ -83,11 +89,12 @@
     border: none;
   }
   .media-body {
-    margin-top: 8px;
     font-size: 15px;
     line-height: 1.6;
     white-space: pre-wrap;
     color: #17181a;
+    margin-top: 5px;
+    margin-bottom: 5px;
   }
   .action-box {
     display: flex;
@@ -138,5 +145,37 @@
   }
   a {
     text-decoration: none;
+  }
+  .topic-title{
+    font-size: 13px;
+    display: inline-block;
+    line-height: 22px;
+    padding: 0 12px;
+    border: 1px solid #05a1a2;
+    border-radius: 14px;
+    user-select: none;
+    margin-top: .666rem;
+  }
+  .comments-image{
+    width: 108px;
+    height: 108px;
+    margin-right: 4px;
+    object-fit:cover;
+  }
+  li{
+    list-style-type:none;
+    display:block;
+    float:left;
+    margin-right:8px;
+    white-space:normal;
+    word-break : break-all;
+    word-wrap: break-word;
+  }
+  .comments-flex{
+    /*display: flex;*/
+    padding-left: initial;
+  }
+  .flex-clear{
+    clear: both;
   }
 </style>
