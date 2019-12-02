@@ -1893,7 +1893,7 @@ a.users-label-item {
   }
 }
 
-.reply-post-submit .help-inline {
+.tweet-submit .help-inline {
   margin-left: 10px;
   font-size: 0.9em;
 }
@@ -2202,13 +2202,16 @@ a.anchorific, a.anchorjs-link  {
   background-color: #fff;
 }
 
-.reply-box {
-  .CodeMirror, .CodeMirror-scroll {
-    min-height: 500px;
-  }
-  .CodeMirror pre {
-    font-size: 14px;
-  }
+.publish-box {
+  background-color: white;
+  padding: 16px 16px 0;
+  margin-bottom: 10px;
+  box-shadow: 0 1px 2px 0 rgba(0,0,0,.05);
+  border: 1px solid #f2f2f2;
+}
+.publish-box textarea {
+  font-size: 15px;
+  height:100px
 }
 .share-link {
   .header {
@@ -2217,7 +2220,7 @@ a.anchorific, a.anchorjs-link  {
     color: #727373;
     line-height: 57px;
   }
-  .reply-box {
+  .publish-box {
     .CodeMirror, .CodeMirror-scroll {
       min-height: 200px;
     }
