@@ -1,10 +1,12 @@
 import { Message } from 'element-ui'
+import ls from '@/utils/localStorage'
 
 export default http => {
   // 请求拦截
   http.interceptors.request.use(
     config => {
       // config.withCredentials = true // 需要跨域打开此配置
+      config.headers.common.Authorization = `Bearer ${ls.get('token')}`
       return config
     },
     error => {
