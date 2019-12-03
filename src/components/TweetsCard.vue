@@ -41,8 +41,8 @@
       <div class="flex-clear"><a class="topic-title" v-if="tweet.topic != null">{{ tweet.topic.name}}</a></div>
     </div>
     <div class="action-box">
-      <div class="action" @click="toggleLike">
-        <i class="fa fa-thumbs-o-up" aria-hidden="true"></i>
+      <div :class="'action ' + (tweet.liked ? 'tweet-liked' : '')" @click="toggleLike">
+        <i :class="'fa ' + (tweet.liked ? 'fa-thumbs-up' : 'fa-thumbs-o-up')" aria-hidden="true"></i>
         <span>{{ tweet.likes_count }}</span>
       </div>
       <div class="action">
@@ -75,10 +75,14 @@
           return this.$message.warning('请先登录～')
         }
 
-        // TODO 通过 tweet.liked 字段判断点赞还是取消点赞
+        let action = this.tweet.liked ? 'unlike' : 'like'
+
         this.$http
-          .post(`tweets/${this.tweet.tid}/like`)
-          .then(data => (this.tweet.likes_count = data.likes_count))
+          .post(`tweets/${this.tweet.tid}/${action}`)
+          .then(data => {
+            this.tweet.likes_count = data.likes_count
+            this.tweet.liked = !this.tweet.liked
+          })
       },
       attention () {
       },
@@ -262,5 +266,9 @@
     text-align: center;
     cursor: pointer;
     white-space: nowrap;
+  }
+
+  .tweet-liked {
+    color: #409EFF;
   }
 </style>
