@@ -71,6 +71,10 @@
     },
     methods: {
       toggleLike () {
+        if (!this.isLogged) {
+          return this.$message.warning('请先登录～')
+        }
+
         // TODO 通过 tweet.liked 字段判断点赞还是取消点赞
         this.$http
           .post(`tweets/${this.tweet.tid}/like`)
