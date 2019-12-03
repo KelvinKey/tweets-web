@@ -16,19 +16,21 @@
                 </a>
                 <div class="meta">
                   <abbr>{{ tweet.user.intro }}</abbr>
-                  <div class="dot" v-if="tweet.user.intro ==null">·</div>
+                  <div class="dot" v-if="tweet.user.intro == null">·</div>
                   <abbr class="timeago">
                     {{ tweet.created_at | moment('from', { startOf: 'second' }) }}
                   </abbr>
                 </div>
               </div>
               <div class="preview media-body markdown-reply markdown-body" v-html="tweet.content"></div>
-              <div>  <ul class="comments-flex">
-                <li v-for ="item in tweet.images" :key="item">
-                  <img :src="item" alt="tweet.images" class="comments-image">
-                </li>
-              </ul></div>
-              <div class="flex-clear"> <a class="topic-title" v-if="tweet.topic.name !=null">{{ tweet.topic.name}}</a></div>
+              <div>
+                <ul class="tweets-flex">
+                  <li v-for="item in tweet.images" :key="item">
+                    <img :src="item" alt="tweet.images" class="tweets-image">
+                  </li>
+                </ul>
+              </div>
+              <div class="flex-clear"><a class="topic-title" v-if="tweet.topic != null">{{ tweet.topic.name}}</a></div>
             </div>
             <div class="action-box">
               <div class="action">
@@ -85,9 +87,11 @@
     background-color: #f0f2f5;
     border: none;
   }
+
   .panel {
     border: none;
   }
+
   .media-body {
     font-size: 15px;
     line-height: 1.6;
@@ -95,7 +99,9 @@
     color: #17181a;
     margin-top: 5px;
     margin-bottom: 5px;
+    padding-right: 3.3rem;
   }
+
   .action-box {
     display: flex;
     position: relative;
@@ -106,6 +112,7 @@
     font-weight: 500;
     color: #8a93a0;
   }
+
   .action {
     flex: 1 1 33.333%;
     display: flex;
@@ -116,6 +123,7 @@
     cursor: pointer;
     user-select: none;
   }
+
   .action:not(:last-child):after {
     content: "";
     position: absolute;
@@ -126,56 +134,66 @@
     height: 1.5rem;
     background-color: #ebebeb;
   }
+
   .action span {
     margin-left: 5px;
   }
+
   .list-group-item {
     padding: 0px;
-    box-shadow: 0 1px 2px 0 rgba(0,0,0,.05);
+    box-shadow: 0 1px 2px 0 rgba(0, 0, 0, .05);
   }
+
   .author {
     font-size: 1.25rem;
     font-weight: 400;
     color: #2e3135;
   }
+
   .meta {
     font-size: 13px;
     color: #8a9aa9;
     cursor: default;
   }
+
   a {
     text-decoration: none;
   }
-  .topic-title{
+
+  .topic-title {
     font-size: 13px;
     display: inline-block;
     line-height: 22px;
     padding: 0 12px;
-    border: 1px solid #05a1a2;
+    border: 1px solid #409EFF;
     border-radius: 14px;
     user-select: none;
     margin-top: .666rem;
   }
-  .comments-image{
-    width: 108px;
-    height: 108px;
-    margin-right: 4px;
-    object-fit:cover;
+
+  .tweets-image {
+    width: 125px;
+    height: 125px;
+    object-fit: cover;
   }
-  li{
-    list-style-type:none;
-    display:block;
-    float:left;
-    margin-right:8px;
-    white-space:normal;
-    word-break : break-all;
+
+  .tweets-flex {
+    padding: initial;
+    margin-top: 1rem;
+  }
+
+  li {
+    list-style-type: none;
+    display: block;
+    float: left;
+    margin-right: 0.5rem;
+    white-space: normal;
+    word-break: break-all;
     word-wrap: break-word;
+    margin-bottom: 0.5rem;
   }
-  .comments-flex{
-    /*display: flex;*/
-    padding-left: initial;
-  }
-  .flex-clear{
+
+  .flex-clear {
     clear: both;
   }
 </style>
