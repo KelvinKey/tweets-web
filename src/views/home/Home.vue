@@ -28,7 +28,7 @@
     methods: {
       loadTweets (page = 1) {
         this.$http
-          .get(`tweets?include=user&page=${page}`)
+          .get(`tweets?include=user,topic&page=${page}`)
           .then(tweets => (this.tweets = tweets))
       },
       handlePageChanged (page) {
