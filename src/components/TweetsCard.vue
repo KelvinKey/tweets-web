@@ -25,7 +25,7 @@
           <div class="tweets-drop" v-show="isShow">
             <div class="tweets-drop-caret"></div>
             <ul class="tweets-drop-menus">
-              <li class="tweets-drop-Report">举报</li>
+              <li class="tweets-drop-report">举报</li>
             </ul>
           </div>
         </div>
@@ -244,7 +244,7 @@
     height: 2.5rem;
   }
 
-  .tweets-drop-Report {
+  .tweets-drop-report {
     padding: 3px 24px;
     display: block;
     font-size: 13px;
