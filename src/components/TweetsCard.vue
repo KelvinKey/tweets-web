@@ -41,12 +41,12 @@
       <div class="flex-clear"><a class="topic-title" v-if="tweet.topic != null">{{ tweet.topic.name}}</a></div>
     </div>
     <div class="action-box">
-      <div class="action">
-        <i class="fa fa-thumbs-o-up fa-2" aria-hidden="true"></i>
+      <div class="action" @click="toggleLike">
+        <i class="fa fa-thumbs-o-up" aria-hidden="true"></i>
         <span>{{ tweet.likes_count }}</span>
       </div>
       <div class="action">
-        <i class="fa fa-comments-o fa-2" aria-hidden="true"></i>
+        <i class="fa fa-comments-o" aria-hidden="true"></i>
         <span>{{ tweet.comments_count }}</span>
       </div>
       <div class="action">分享</div>
@@ -70,6 +70,12 @@
       ...mapGetters(['isLogged'])
     },
     methods: {
+      toggleLike () {
+        // TODO 通过 tweet.liked 字段判断点赞还是取消点赞
+        this.$http
+          .post(`tweets/${this.tweet.tid}/like`)
+          .then(data => (this.tweet.likes_count = data.likes_count))
+      },
       attention () {
       },
       report () {
