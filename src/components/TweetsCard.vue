@@ -12,26 +12,15 @@
         </a>
         <div class="meta">
           <abbr>{{ tweet.user.intro }}</abbr>
-          <div class="dot" v-if="tweet.user.intro == null">·</div>
+          <div class="dot" v-if="tweet.user.intro">·</div>
           <abbr class="timeago">
             {{ tweet.created_at | moment('from', { startOf: 'second' }) }}
           </abbr>
         </div>
-        <div class="tweets-attention">
+        <div class="tweets-attention" @mouseleave="leaveMoreBtn">
           <button v-if="isLogged" class="subscribe-btn" v-on:click="attention">关注</button>
-          <div class="tweets-svg" v-on:click="report">
-            <svg t="1529034629100" viewBox="0 0 1024 1024" version="1.1" xmlns="http://www.w3.org/2000/svg" p-id="1948"
-                 xmlns:xlink="http://www.w3.org/1999/xlink" width="24" height="24" class="icon">
-              <path data-v-00139275=""
-                    d="M804.606221 432.282401c120.691803 0 119.469975 187.388854-1.465374 187.388854C682.449044 619.671255 683.426301 432.282401 804.606221 432.282401z"
-                    p-id="1949" fill="#b8c1cc"></path>
-              <path data-v-00139275=""
-                    d="M511.428995 432.282401c120.691803 0 119.469975 187.388854-1.465374 187.388854C389.271818 619.671255 390.249075 432.282401 511.428995 432.282401z"
-                    p-id="1950" fill="#b8c1cc"></path>
-              <path data-v-00139275=""
-                    d="M218.251769 432.282401c120.691803 0 119.469975 187.388854-1.465374 187.388854C96.094592 619.671255 97.071849 432.282401 218.251769 432.282401z"
-                    p-id="1951" fill="#b8c1cc"></path>
-            </svg>
+          <div class="more-btn" v-on:click="report">
+            <i class="fa fa-ellipsis-h fa-2" aria-hidden="true"></i>
           </div>
           <div class="tweets-drop" v-show="isShow">
             <div class="tweets-drop-caret"></div>
@@ -81,10 +70,13 @@
       ...mapGetters(['isLogged'])
     },
     methods: {
-      attention: () => {
+      attention () {
       },
-      report: () => {
+      report () {
         this.isShow = !this.isShow
+      },
+      leaveMoreBtn () {
+        this.isShow = false
       }
     }
   }
@@ -204,16 +196,22 @@
     width: 55px;
     height: 26px;
     font-size: 13px;
-    border-color: #409EFF;
     color: #409EFF;
     border: 1px solid #409EFF;
     background-color: #fff;
     border-radius: 2px;
   }
 
-  .tweets-svg {
+  .more-btn {
     float: right;
     margin-right: 2rem;
+    cursor: pointer;
+    padding: 5px 0 5px 15px;
+  }
+
+  .more-btn i {
+    color: #b8c1cc;
+    font-size: 18px;
   }
 
   .tweets-group {
