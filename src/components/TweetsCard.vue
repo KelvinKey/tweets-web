@@ -74,9 +74,7 @@
         if (!this.isLogged) {
           return this.$message.warning('请先登录～')
         }
-        console.log(this.tweet)
         let action = this.tweet.liked ? 'unlike' : 'like'
-
         await this.$http
           .post(`tweets/${this.tweet.tid}/${action}`)
           .then(data => {
@@ -94,6 +92,9 @@
       }
     },
     watch: {
+      isLogged (val) {
+        !val && (this.tweet.liked = false)
+      }
     }
   }
 </script>

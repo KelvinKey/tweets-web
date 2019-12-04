@@ -5,8 +5,8 @@
     </div>
     <div class="panel-body">
       <ul>
-        <li v-for="topics in Bar" :key="topics.tid">
-          <a href="##" class="panel-item"> {{ topics.name }}</a>
+        <li v-for="topic in topics" :key="topic.tid">
+          <a href="#" class="panel-item"> {{ topic.name }}</a>
         </li>
       </ul>
     </div>
@@ -16,20 +16,18 @@
 
 <script>
   export default {
-    name: 'TopicsBar',
+    name: 'HotTopics',
     mounted () {
-      this.loadBar()
+      this.loadHotTopics()
     },
     data () {
       return {
-        Bar: {}
+        topics: {}
       }
     },
     methods: {
-      loadBar () {
-        this.$http
-          .get(`/topics`)
-          .then(Bar => (this.Bar = Bar))
+      loadHotTopics () {
+        this.$http.get(`/topics`).then(topics => (this.topics = topics))
       }
     }
   }
