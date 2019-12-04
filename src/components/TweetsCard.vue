@@ -19,13 +19,13 @@
         </div>
         <div class="tweets-attention" @mouseleave="leaveMoreBtn">
           <button v-if="isLogged" class="subscribe-btn" v-on:click="attention">关注</button>
-          <div class="more-btn" v-on:click="report">
+          <div class="more-btn" v-on:click="report" v-if="isLogged">
             <i class="fa fa-ellipsis-h fa-2" aria-hidden="true"></i>
           </div>
           <div class="tweets-drop" v-show="isShow">
             <div class="tweets-drop-caret"></div>
             <ul class="tweets-drop-menus">
-              <li class="tweets-drop-report">举报</li>
+              <li>举报</li>
             </ul>
           </div>
         </div>
@@ -38,11 +38,11 @@
           </li>
         </ul>
       </div>
-      <div class="flex-clear"><a class="topic-title" v-if="tweet.topic != null">{{ tweet.topic.name}}</a></div>
+      <div class="flex-clear"><a class="topic-title" v-if="tweet.topic">{{ tweet.topic.name}}</a></div>
     </div>
     <div class="action-box">
-      <div :class="'action ' + (tweet.liked ? 'tweet-liked' : '')" @click="toggleLike">
-        <i :class="'fa ' + (tweet.liked ? 'fa-thumbs-up' : 'fa-thumbs-o-up')" aria-hidden="true"></i>
+      <div :class="'action ' + (tweet.liked && isLogged ? 'tweet-liked' : '')" @click="toggleLike">
+        <i :class="'fa fa-thumbs' + (tweet.liked && isLogged ? '' : '-o') + '-up'" aria-hidden="true"></i>
         <span>{{ tweet.likes_count }}</span>
       </div>
       <div class="action">
@@ -70,14 +70,12 @@
       ...mapGetters(['isLogged'])
     },
     methods: {
-      toggleLike () {
+      async toggleLike () {
         if (!this.isLogged) {
           return this.$message.warning('请先登录～')
         }
-
         let action = this.tweet.liked ? 'unlike' : 'like'
-
-        this.$http
+        await this.$http
           .post(`tweets/${this.tweet.tid}/${action}`)
           .then(data => {
             this.tweet.likes_count = data.likes_count
@@ -91,6 +89,11 @@
       },
       leaveMoreBtn () {
         this.isShow = false
+      }
+    },
+    watch: {
+      isLogged (val) {
+        !val && (this.tweet.liked = false)
       }
     }
   }
@@ -258,7 +261,7 @@
     height: 2.5rem;
   }
 
-  .tweets-drop-report {
+  .tweets-drop-menus li {
     padding: 3px 24px;
     display: block;
     font-size: 13px;
