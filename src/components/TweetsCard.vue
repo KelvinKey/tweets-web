@@ -18,7 +18,9 @@
           </abbr>
         </div>
         <div class="tweets-attention" @mouseleave="leaveMoreBtn">
-          <button v-if="isLogged" class="subscribe-btn" v-on:click="attention">关注</button>
+          <button v-if="isLogged && this.currentUser.uid !== this.tweet.uid" v-show="isAtten" class="subscribe-btn"
+                  v-on:click="attention">关注
+          </button>
           <div class="more-btn" v-on:click="report" v-if="isLogged">
             <i class="fa fa-ellipsis-h fa-2" aria-hidden="true"></i>
           </div>
@@ -30,7 +32,7 @@
           </div>
         </div>
       </div>
-      <div class="preview media-body markdown-reply markdown-body" v-html="tweet.content"></div>
+      <div class="preview media-body markdown-reply markdown-body" v-html="parseContent(tweet.content)"></div>
       <div>
         <ul class="tweets-flex">
           <li v-for="item in tweet.images" :key="item">
@@ -38,10 +40,10 @@
           </li>
         </ul>
       </div>
-      <div class="flex-clear"><a class="topic-title" v-if="tweet.topic">{{ tweet.topic.name}}</a></div>
     </div>
     <div class="action-box">
       <div :class="'action ' + (tweet.liked && isLogged ? 'tweet-liked' : '')" @click="toggleLike">
+        <span id="liked-icon" v-show="isLiked" :class="isLiked ? 'fadeOutUp animated':''">+1</span>
         <i :class="'fa fa-thumbs' + (tweet.liked && isLogged ? '' : '-o') + '-up'" aria-hidden="true"></i>
         <span>{{ tweet.likes_count }}</span>
       </div>
@@ -63,11 +65,13 @@
     props: ['tweet'],
     data () {
       return {
-        isShow: false
+        isShow: false,
+        isAtten: true,
+        isLiked: false
       }
     },
     computed: {
-      ...mapGetters(['isLogged'])
+      ...mapGetters(['currentUser', 'isLogged'])
     },
     methods: {
       async toggleLike () {
@@ -80,21 +84,39 @@
           .then(data => {
             this.tweet.likes_count = data.likes_count
             this.tweet.liked = !this.tweet.liked
+            this.isLiked = !this.isLiked
           })
       },
-      attention () {
+      async attention () {
+        await this.$http
+          .post(`users/${this.tweet.uid}/follow`)
+          .then(data => {
+            this.tweet.user.followers_count = data.followers_count
+            this.isAtten = false
+          })
       },
       report () {
         this.isShow = !this.isShow
       },
       leaveMoreBtn () {
         this.isShow = false
+      },
+      isAttened () {
+        if (this.tweet.user.followers_count > 0) {
+          this.isAtten = false
+        }
+      },
+      parseContent (value) {
+        return value.replace(/#([^#]{1,20})#/g, '<a href= "#" >#' + '$1' + '#</a>')
       }
     },
     watch: {
       isLogged (val) {
         !val && (this.tweet.liked = false)
       }
+    },
+    mounted () {
+      this.isAttened()
     }
   }
 </script>
@@ -155,17 +177,6 @@
     cursor: default;
   }
 
-  .topic-title {
-    font-size: 13px;
-    display: inline-block;
-    line-height: 22px;
-    padding: 0 12px;
-    border: 1px solid #409EFF;
-    border-radius: 14px;
-    user-select: none;
-    margin-top: .666rem;
-  }
-
   .tweets-image {
     width: 125px;
     height: 125px;
@@ -175,10 +186,6 @@
   .tweets-flex {
     padding: initial;
     margin-top: 1rem;
-  }
-
-  .flex-clear {
-    clear: both;
   }
 
   li {
@@ -273,5 +280,11 @@
 
   .tweet-liked {
     color: #409EFF;
+  }
+
+  #liked-icon {
+    color: red;
+    width: 18px;
+    position: absolute;
   }
 </style>
