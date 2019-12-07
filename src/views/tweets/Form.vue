@@ -8,7 +8,7 @@
       <UploadImage ref="uploadImage" @images-updated="imagesUpdated"/>
     </div>
     <div class="form-group tweet-submit">
-      <div class="action-box">
+      <div class="action-box" v-if="isLogged">
         <EmojiPicker @emoji-selected="emojiSelected"/>
         <div @click="uploadImage">
           <i class="fa fa-picture-o" aria-hidden="true"></i> 图片
