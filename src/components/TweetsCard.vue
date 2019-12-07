@@ -30,7 +30,7 @@
           </div>
         </div>
       </div>
-      <div class="preview media-body markdown-reply markdown-body" v-html="tweet.content"></div>
+      <div class="preview media-body" v-html="tweet.content"></div>
       <div class="tweets-image">
         <ElImage
           style="width: 9rem; height: 9rem; margin-top:4px;margin-right:4px;overflow: visible;"

@@ -36,4 +36,8 @@
   @import "~font-awesome/scss/font-awesome";
   @import "./styles/main";
   @import "./styles/extra";
+
+  input[type="file"] {
+    display: none;
+  }
 </style>
