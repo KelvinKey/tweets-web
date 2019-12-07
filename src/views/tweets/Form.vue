@@ -8,7 +8,7 @@
       <div class="action-box">
         <EmojiPicker @emoji-selected="emojiSelected"/>
       </div>
-      <button @click="publish" @keyup.ctrl.enter="publish" :disabled="!isLogged" class="btn btn-primary action-box pull-right">发布</button>
+      <button @click="publish" @keyup.ctrl.enter="publish" :disabled="!isLogged" class="btn btn-primary pull-right">发布</button>
     </div>
   </div>
 </template>
@@ -55,5 +55,10 @@
   .action-box {
     margin-left: 10px;
     display: inline-block;
+    cursor: pointer;
+    transition: all 0.2s;
+    text-align: center;
+    color: #0d84ff;
+    line-height: 30px;
   }
 </style>

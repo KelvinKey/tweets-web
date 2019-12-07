@@ -68,14 +68,6 @@
     display: inline-block;
   }
 
-  .emoji-invoker {
-    cursor: pointer;
-    transition: all 0.2s;
-    color: #0d84ff;
-    text-align: center;
-    line-height: 30px;
-  }
-
   .emoji-invoker i {
     font-size: 17px;
   }
@@ -116,6 +108,8 @@
     border: 1px solid #ccc;
     padding: 0.5rem 1rem;
     outline: none;
+    line-height: normal;
+    color:black;
   }
   .emoji-picker h5 {
     margin-bottom: 0;
@@ -123,6 +117,7 @@
     text-transform: uppercase;
     font-size: 0.8rem;
     cursor: default;
+    text-align: left;
   }
   .emoji-picker .emojis {
     display: flex;
