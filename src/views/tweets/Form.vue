@@ -5,8 +5,10 @@
       <textarea v-else disabled class="form-control" placeholder="需要登录后才能发表发布动弹"></textarea>
     </div>
     <div class="form-group tweet-submit">
-      <button @click="publish" @keyup.ctrl.enter="publish" :disabled="!isLogged" class="btn btn-primary">发布</button>
-      <span class="help-inline">Ctrl+Enter</span>
+      <div class="action-box">
+        <EmojiPicker @emoji-selected="emojiSelected"/>
+      </div>
+      <button @click="publish" @keyup.ctrl.enter="publish" :disabled="!isLogged" class="btn btn-primary action-box pull-right">发布</button>
     </div>
   </div>
 </template>
@@ -14,6 +16,7 @@
 <script>
   import { mapGetters } from 'vuex'
   import { isEmpty } from 'lodash'
+  import EmojiPicker from '../../components/EmojiPicker'
 
   export default {
     name: 'Form',
@@ -22,6 +25,9 @@
         topic_id: '',
         content: ''
       }
+    },
+    components: {
+      EmojiPicker
     },
     computed: {
       ...mapGetters(['isLogged'])
@@ -37,10 +43,17 @@
         this.content = ''
         this.$emit('page-changed', 1)
         this.$message.success('发布成功')
+      },
+      emojiSelected (emoji) {
+        this.content += emoji
       }
     }
   }
 </script>
 
 <style scoped>
+  .action-box {
+    margin-left: 10px;
+    display: inline-block;
+  }
 </style>
