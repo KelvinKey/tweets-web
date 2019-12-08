@@ -16,6 +16,7 @@
   import TweetsList from '../../components/TweetsList'
   import HotTopics from '../../components/HotTopics'
   import TweetForm from '../../views/tweets/Form'
+  import { isEmpty } from 'lodash'
 
   export default {
     name: 'Home',
@@ -26,18 +27,25 @@
     },
     data () {
       return {
-        tweets: {}
+        topic: {},
+        tweets: {},
+        topic_id: ''
       }
     },
     methods: {
       loadTweets (page = 1) {
+        let path = isEmpty(this.topic_id) ? '' : `topics/${this.topic_id}/`
+
         this.$http
-          .get(`tweets?include=user,topic&page=${page}`)
+          .get(`${path}tweets?include=user&page=${page}`)
           .then(tweets => (this.tweets = tweets))
       },
       handlePageChanged (page) {
         this.loadTweets(page)
       }
+    },
+    created () {
+      this.topic_id = this.$route.params.topic_id
     },
     mounted () {
       this.loadTweets()

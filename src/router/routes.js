@@ -20,6 +20,11 @@ export default [
     component: () => import('@/views/auth/Login')
   },
   {
+    path: '/topic/:topic_id',
+    name: 'TopicTweets',
+    component: () => import('@/views/home/Home')
+  },
+  {
     path: '/tweets/:tid',
     name: 'ShowTweet'
   }
