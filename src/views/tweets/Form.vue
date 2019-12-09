@@ -29,10 +29,9 @@
     name: 'Form',
     data () {
       return {
-        topic_id: '',
+        topicName: '',
         content: '',
-        images: [],
-        topic: {}
+        images: []
       }
     },
     components: {
@@ -46,7 +45,7 @@
       async publish () {
         await this.$http.post('tweets', this.$data)
 
-        this.content = isEmpty(this.topic_id) ? '' : `#${this.topic.name}# `
+        this.loadTopicName()
         this.$emit('page-changed', 1)
         this.$message.success('发布成功')
       },
@@ -62,20 +61,14 @@
         for (let index in images) {
          this.images.push(images[index].response.url)
         }
+      },
+      loadTopicName () {
+        this.content = isEmpty(this.topicName) ? '' : `#${this.topicName}# `
       }
     },
     created () {
-      this.topic_id = this.$route.params.topic_id
-    },
-    async mounted () {
-      if (!isEmpty(this.topic_id)) {
-        await this.$http
-          .get(`topics/${this.topic_id}`)
-          .then(topic => {
-            this.topic = topic
-            this.content = `#${topic.name}# `
-          })
-      }
+      this.topicName = this.$route.params.topic_name
+      this.loadTopicName()
     }
   }
 </script>

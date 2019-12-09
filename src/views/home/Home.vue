@@ -17,6 +17,7 @@
   import HotTopics from '../../components/HotTopics'
   import TweetForm from '../../views/tweets/Form'
   import { isEmpty } from 'lodash'
+  import md5 from 'js-md5'
 
   export default {
     name: 'Home',
@@ -29,12 +30,12 @@
       return {
         topic: {},
         tweets: {},
-        topic_id: ''
+        topicName: ''
       }
     },
     methods: {
       loadTweets (page = 1) {
-        let path = isEmpty(this.topic_id) ? '' : `topics/${this.topic_id}/`
+        let path = isEmpty(this.topicName) ? '' : `topics/${md5(this.topicName)}/`
 
         this.$http
           .get(`${path}tweets?include=user&page=${page}`)
@@ -45,7 +46,7 @@
       }
     },
     created () {
-      this.topic_id = this.$route.params.topic_id
+      this.topicName = this.$route.params.topic_name
     },
     mounted () {
       this.loadTweets()

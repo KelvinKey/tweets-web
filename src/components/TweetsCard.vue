@@ -86,8 +86,9 @@
         if (!this.isLogged) {
           return this.$message.warning('请先登录～')
         }
+
         let action = this.tweet.liked ? 'unlike' : 'like'
-        console.log(this.tweet.liked)
+
         await this.$http
           .post(`tweets/${this.tweet.tid}/${action}`)
           .then(data => {
@@ -102,6 +103,7 @@
           .then(data => {
             this.isAtten = false
           })
+
         this.$message.warning('关注成功~')
       },
       report () {
@@ -114,7 +116,7 @@
         this.isAtten = !this.tweet.user.followed
       },
       parseContent (value) {
-        return value.replace(/#([^#]{1,20})#/g, '<a href= "#" >#' + '$1' + '#</a>')
+        return value.replace(/#([^#]{1,20})#/g, '<a href= "/topic/$1" >#$1#</a>')
       }
     },
     watch: {
