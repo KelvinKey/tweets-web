@@ -4,15 +4,25 @@
       <textarea v-if="isLogged" v-model="content" class="form-control" placeholder="告诉你个小秘密，发动弹时添加话题会被更多小伙伴看见呦~"></textarea>
       <textarea v-else disabled class="form-control" placeholder="需要登录后才能发表发布动弹"></textarea>
     </div>
-    <div class="form-group tweet-submit">
-      <button @click="publish" @keyup.ctrl.enter="publish" :disabled="!isLogged" class="btn btn-primary">发布</button>
-      <span class="help-inline">Ctrl+Enter</span>
+    <div class="form-group">
+      <UploadImage ref="uploadImage" @images-updated="imagesUpdated"/>
+    </div>
+    <div class="form-group tweet-submit" :class="{hide: !isLogged}">
+      <div class="action-box">
+        <EmojiPicker @emoji-selected="emojiSelected"/>
+        <div @click="uploadImage">
+          <i class="fa fa-picture-o" aria-hidden="true"></i> 图片
+        </div>
+      </div>
+      <button @click="publish" @keyup.ctrl.enter="publish" :disabled="!isLogged" class="btn btn-primary pull-right">发布</button>
     </div>
   </div>
 </template>
 
 <script>
   import { mapGetters } from 'vuex'
+  import EmojiPicker from '../../components/EmojiPicker'
+  import UploadImage from '../../components/UploadImage'
   import { isEmpty } from 'lodash'
 
   export default {
@@ -20,27 +30,67 @@
     data () {
       return {
         topic_id: '',
-        content: ''
+        content: '',
+        images: [],
+        topic: {}
       }
+    },
+    components: {
+      UploadImage,
+      EmojiPicker
     },
     computed: {
       ...mapGetters(['isLogged'])
     },
     methods: {
       async publish () {
-        let data = this.$data
+        await this.$http.post('tweets', this.$data)
 
-        isEmpty(data.topic_id) && delete data.topic_id
-
-        await this.$http.post('tweets', data)
-
-        this.content = ''
+        this.content = isEmpty(this.topic_id) ? '' : `#${this.topic.name}# `
         this.$emit('page-changed', 1)
         this.$message.success('发布成功')
+      },
+      emojiSelected (emoji) {
+        this.content += emoji
+      },
+      uploadImage () {
+        this.$refs.uploadImage.$emit('submit')
+      },
+      imagesUpdated (images) {
+        this.images = []
+
+        for (let index in images) {
+         this.images.push(images[index].response.url)
+        }
+      }
+    },
+    created () {
+      this.topic_id = this.$route.params.topic_id
+    },
+    async mounted () {
+      if (!isEmpty(this.topic_id)) {
+        await this.$http
+          .get(`topics/${this.topic_id}`)
+          .then(topic => {
+            this.topic = topic
+            this.content = `#${topic.name}# `
+          })
       }
     }
   }
 </script>
 
 <style scoped>
+  .action-box {
+    display: inline-block;
+    cursor: pointer;
+    transition: all 0.2s;
+    text-align: center;
+    color: #0d84ff;
+    line-height: 30px;
+  }
+  .action-box>div {
+    margin-left: 10px;
+    display: inline-block;
+  }
 </style>

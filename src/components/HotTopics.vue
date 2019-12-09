@@ -6,7 +6,7 @@
     <div class="panel-body">
       <ul>
         <li v-for="topic in topics" :key="topic.tid">
-          <a href="#" class="panel-item"> {{ topic.name }}</a>
+          <a :href="'/topic/' + topic.tid" class="panel-item"> {{ topic.name }}</a>
         </li>
       </ul>
     </div>

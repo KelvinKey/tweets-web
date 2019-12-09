@@ -37,4 +37,7 @@
   @import "./styles/main";
   @import "./styles/extra";
   @import "./styles/animate";
+  input[type="file"] {
+    display: none;
+  }
 </style>

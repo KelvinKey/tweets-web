@@ -39,6 +39,16 @@
             <img :src="item" alt="tweet.images" class="tweets-image">
           </li>
         </ul>
+
+      <div class="preview media-body" v-html="tweet.content"></div>
+      <div class="tweets-image">
+        <ElImage
+          style="width: 9rem; height: 9rem; margin-top:4px;margin-right:4px;overflow: visible;"
+          fit="cover"
+          v-for="url in tweet.images"
+          :key="url"
+          :src="url"
+          :preview-src-list="tweet.images" lazy/>
       </div>
     </div>
     <div class="action-box">
@@ -59,6 +69,9 @@
 
 <script>
   import {mapGetters} from 'vuex'
+  import { Image as ElImage } from 'element-ui'
+  import 'element-ui/lib/theme-chalk/image.css'
+  import 'element-ui/lib/image'
 
   export default {
     name: 'TweetsCard',
@@ -69,6 +82,9 @@
         isAtten: true,
         isLiked: false
       }
+    },
+    components: {
+      ElImage
     },
     computed: {
       ...mapGetters(['currentUser', 'isLogged'])
@@ -135,7 +151,6 @@
   .action-box {
     display: flex;
     position: relative;
-    margin-top: 1.333rem;
     height: 34px;
     border-top: 1px solid #ebebeb;
     font-size: 13px;
@@ -178,14 +193,8 @@
   }
 
   .tweets-image {
-    width: 125px;
-    height: 125px;
-    object-fit: cover;
-  }
-
-  .tweets-flex {
     padding: initial;
-    margin-top: 1rem;
+    margin: .7rem 0;
   }
 
   li {
