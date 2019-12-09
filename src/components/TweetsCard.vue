@@ -32,14 +32,6 @@
           </div>
         </div>
       </div>
-      <div class="preview media-body markdown-reply markdown-body" v-html="parseContent(tweet.content)"></div>
-      <div>
-        <ul class="tweets-flex">
-          <li v-for="item in tweet.images" :key="item">
-            <img :src="item" alt="tweet.images" class="tweets-image">
-          </li>
-        </ul>
-
       <div class="preview media-body" v-html="tweet.content"></div>
       <div class="tweets-image">
         <ElImage
@@ -118,9 +110,7 @@
         this.isShow = false
       },
       isAttened () {
-        if (this.tweet.user.followers_count > 0) {
-          this.isAtten = false
-        }
+        this.isAtten = !this.tweet.user.followed
       },
       parseContent (value) {
         return value.replace(/#([^#]{1,20})#/g, '<a href= "#" >#' + '$1' + '#</a>')
