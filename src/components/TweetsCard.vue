@@ -32,15 +32,7 @@
           </div>
         </div>
       </div>
-      <div class="preview media-body markdown-reply markdown-body" v-html="parseContent(tweet.content)"></div>
-      <div>
-        <ul class="tweets-flex">
-          <li v-for="item in tweet.images" :key="item">
-            <img :src="item" alt="tweet.images" class="tweets-image">
-          </li>
-        </ul>
-
-      <div class="preview media-body" v-html="tweet.content"></div>
+      <div class="preview media-body" v-html="parseContent(tweet.content)"></div>
       <div class="tweets-image">
         <ElImage
           style="width: 9rem; height: 9rem; margin-top:4px;margin-right:4px;overflow: visible;"
@@ -79,8 +71,8 @@
     data () {
       return {
         isShow: false,
-        isAtten: true,
-        isLiked: false
+        isLiked: false,
+        isAtten: true
       }
     },
     components: {
@@ -95,21 +87,22 @@
           return this.$message.warning('请先登录～')
         }
         let action = this.tweet.liked ? 'unlike' : 'like'
+        console.log(this.tweet.liked)
         await this.$http
           .post(`tweets/${this.tweet.tid}/${action}`)
           .then(data => {
             this.tweet.likes_count = data.likes_count
             this.tweet.liked = !this.tweet.liked
-            this.isLiked = !this.isLiked
+            this.isLiked = this.tweet.liked
           })
       },
       async attention () {
         await this.$http
           .post(`users/${this.tweet.uid}/follow`)
           .then(data => {
-            this.tweet.user.followers_count = data.followers_count
             this.isAtten = false
           })
+        this.$message.warning('关注成功~')
       },
       report () {
         this.isShow = !this.isShow
@@ -118,9 +111,7 @@
         this.isShow = false
       },
       isAttened () {
-        if (this.tweet.user.followers_count > 0) {
-          this.isAtten = false
-        }
+        this.isAtten = !this.tweet.user.followed
       },
       parseContent (value) {
         return value.replace(/#([^#]{1,20})#/g, '<a href= "#" >#' + '$1' + '#</a>')
