@@ -48,6 +48,7 @@
         this.loadTopicName()
         this.$emit('page-changed', 1)
         this.$message.success('发布成功')
+        this.$refs.uploadImage.$emit('clear')
       },
       emojiSelected (emoji) {
         this.content += emoji

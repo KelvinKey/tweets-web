@@ -56,9 +56,9 @@
       }
     },
     mounted () {
-      this.$on('submit', () => {
-        this.$refs.uploadBtn.click()
-      })
+      this.$on('clear', () => (this.images = []))
+        .$on('hide', () => (this.visible = false))
+        .$on('submit', () => (this.$refs.uploadBtn.click()))
     },
     methods: {
       handleBeforeUpload (file) {
