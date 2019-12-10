@@ -2,7 +2,7 @@
   <div class="publish-box form box-block">
     <div class="form-group tweet-editor">
       <textarea v-if="isLogged" v-model="content" class="form-control" placeholder="告诉你个小秘密，发动弹时添加话题会被更多小伙伴看见呦~"></textarea>
-      <textarea v-else disabled class="form-control" placeholder="需要登录后才能发表发布动弹"></textarea>
+      <textarea v-else disabled class="form-control" placeholder="需要登录后才能发布动弹"></textarea>
     </div>
     <div class="form-group">
       <UploadImage ref="uploadImage" @images-updated="imagesUpdated"/>

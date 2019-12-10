@@ -1,6 +1,6 @@
 <template>
   <div class="tweets-group">
-    <div class="avatar avatar-container pull-left">
+    <div class="avatar-container pull-left">
       <a href="#">
         <img :src="tweet.user.avatar" class="media-object avatar avatar-middle">
       </a>
@@ -56,7 +56,6 @@
       <div class="action">分享</div>
     </div>
   </div>
-
 </template>
 
 <script>
@@ -146,6 +145,7 @@
     position: relative;
     height: 34px;
     border-top: 1px solid #ebebeb;
+    border-bottom: 1px solid #ebebeb;
     font-size: 13px;
     font-weight: 500;
     color: #8a93a0;
