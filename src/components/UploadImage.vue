@@ -37,7 +37,7 @@
         visible: false,
         canUpload: true,
         images: [],
-        limitCount: 6,
+        limitCount: 7,
         uploadUrl: `${process.env.API_URL}files/upload`,
         dialogImageUrl: '',
         dialogVisible: false
@@ -61,7 +61,7 @@
         .$on('submit', () => (this.$refs.uploadBtn.click()))
     },
     methods: {
-      handleBeforeUpload (file) {
+      handleBeforeUpload () {
         this.visible = true
       },
       handleRemove (file, fileList) {
@@ -70,7 +70,7 @@
       handleSuccess (response, file, fileList) {
         this.$emit('images-updated', fileList)
       },
-      handleError (err, file, fileList) {
+      handleError (err) {
         console.log(err)
       },
       handleChange (file, fileList) {

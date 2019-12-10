@@ -10,6 +10,7 @@
         <i class="fa fa-smile-o" aria-hidden="true"></i> 表情
       </div>
       <div slot="emoji-picker" slot-scope="{ emojis, insert, display }">
+        <div class="emoji-caret"></div>
         <div class="emoji-picker">
           <div class="emoji-picker__search">
             <input type="text" v-model="search" v-focus>
@@ -138,5 +139,11 @@
     background: #ececec;
     cursor: pointer;
   }
-
+  .emoji-caret {
+    position: relative;
+    width: 0;
+    height: 0;
+    border: 6px solid transparent;
+    border-bottom-color: #ebebeb;
+  }
 </style>
