@@ -27,6 +27,8 @@
           <div class="tweets-drop" v-show="isShow">
             <div class="tweets-drop-caret"></div>
             <ul class="tweets-drop-menus">
+              <li>编辑</li>
+              <li>删除</li>
               <li>举报</li>
             </ul>
           </div>
@@ -210,7 +212,7 @@
   }
 
   .tweets-attention {
-    width: 9rem;
+    width: 4.5rem;
     height: 2.5rem;
     float: right;
     margin-top: -35px;
@@ -245,15 +247,13 @@
   }
 
   .tweets-drop {
-    position: absolute;
-    margin-top: 3px;
+    margin-top: 11px;
     right: -8px;
   }
 
   .tweets-drop-caret {
-    position: absolute;
-    top: -11px;
-    left: 30px;
+    position: relative;
+    left: 22px;
     width: 0;
     height: 0;
     border: 6px solid transparent;
@@ -267,11 +267,11 @@
     background-color: #fff;
     border: 1px solid #ebebeb;
     box-shadow: 0 3px 12px 0 rgba(0, 0, 0, .06);
-    height: 2.5rem;
+    height: 5.8rem;
   }
 
   .tweets-drop-menus li {
-    padding: 3px 24px;
+    padding: 0px 16px;
     display: block;
     font-size: 13px;
     color: #84878b;
