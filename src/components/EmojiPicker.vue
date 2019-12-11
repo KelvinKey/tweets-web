@@ -88,7 +88,6 @@
     box-sizing: border-box;
     background: #fff;
     box-shadow: 0 5px 18px 0 rgba(0,0,0,.16);
-    margin-top: 10px;
   }
   .triangle {
     position: absolute;
@@ -145,5 +144,7 @@
     height: 0;
     border: 6px solid transparent;
     border-bottom-color: #ebebeb;
+    left:50%;
+    magin-top:0;
   }
 </style>

@@ -4,25 +4,25 @@
       <div class="profile-box shadow">
         <div class="profile">
           <a href="#" target="_blank">
-            <div class="lazy avatar avatar loaded"
-                 :style="{backgroundImage: 'url(' + sidebar.avatar + ')', backgroundSize: 'contain' }"></div>
+            <div class="lazy avatar loaded"
+                 :style="{backgroundImage: 'url(' + user.avatar + ')', backgroundSize: 'contain' }"></div>
           </a>
-          <div class="user-info"><a href="#" target="_blank" class="username ellipsis">{{sidebar.username}}</a>
-            <div class="position ellipsis">全栈</div>
+          <div class="user-info"><a href="#" target="_blank" class="username ellipsis">{{user.username}}</a>
+            <div class="position ellipsis">{{user.intro}}</div>
           </div>
         </div>
         <ul class="stat-list">
           <a data-v-a8fb4580="" href="#" target="_blank" class="item">
             <div class="title">动弹</div>
-            <div class="count">{{sidebar.tweets_count}}</div>
+            <div class="count">{{user.tweets_count}}</div>
           </a>
           <a href="#" target="_blank" class="item">
             <div class="title">关注</div>
-            <div class="count">{{sidebar.following_count}}</div>
+            <div class="count">{{user.following_count}}</div>
           </a>
           <a href="#" target="_blank" class="item">
             <div class="title">粉丝</div>
-            <div class="count">{{sidebar.followers_count}}</div>
+            <div class="count">{{user.followers_count}}</div>
           </a></ul>
       </div>
     </div>
@@ -33,16 +33,16 @@
   export default {
     name: 'TweetsSide',
     mounted () {
-      this.loadSideBar()
+      this.loadUser()
     },
     data () {
       return {
-        sidebar: {}
+        user: {}
       }
     },
     methods: {
-      loadSideBar () {
-        this.$http.get(`user/me`).then(sidebar => { this.sidebar = sidebar })
+      loadUser () {
+        this.$http.get(`user/me`).then(user => { this.user = user })
       }
     }
   }
@@ -122,8 +122,8 @@
   .profile-box .profile .avatar {
     flex: 0 0 auto;
     margin-right: 1rem;
-    width: 60px;
-    height: 60px;
+    width: 55px;
+    height: 55px;
     border-radius: 50%;
     border: 1px solid #fff;
     box-shadow: 0 2px 6px 0 rgba(0, 0, 0, .15);
