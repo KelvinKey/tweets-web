@@ -31,7 +31,7 @@
 
 <script>
   export default {
-    name: 'TweetsSide',
+    name: 'ProfileCard',
     mounted () {
       this.loadUser()
     },
