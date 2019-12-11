@@ -58,4 +58,8 @@
   a:active, a:link, a:visited {
     text-decoration: none;
   }
+  .panel {
+    border: none;
+    border-radius: 3px;
+  }
 </style>

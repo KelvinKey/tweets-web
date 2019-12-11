@@ -6,9 +6,11 @@
       </div>
       <div class="col-md-6">
         <TweetForm @page-changed="handlePageChanged"/>
-        <TweetsList :tweets="tweets" @page-changed="handlePageChanged" />
+        <TweetsList :tweets="tweets" @page-changed="handlePageChanged"/>
       </div>
-      <div class="col-md-3"></div>
+      <div class="col-md-3" style="margin-left: inherit;">
+        <TweetsSide />
+      </div>
     </div>
   </div>
 </template>
@@ -16,7 +18,8 @@
   import TweetsList from '../../components/TweetsList'
   import HotTopics from '../../components/HotTopics'
   import TweetForm from '../../views/tweets/Form'
-  import { isEmpty } from 'lodash'
+  import TweetsSide from '../../components/TweetsSide'
+  import {isEmpty} from 'lodash'
   import md5 from 'js-md5'
 
   export default {
@@ -24,7 +27,8 @@
     components: {
       TweetsList,
       TweetForm,
-      HotTopics
+      HotTopics,
+      TweetsSide
     },
     data () {
       return {
