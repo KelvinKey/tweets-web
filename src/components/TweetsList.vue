@@ -54,9 +54,12 @@
     background-color: #f0f2f5;
     border: none;
   }
+
   .panel {
     border: none;
+    border-radius: 3px;
   }
+
   .list-group-item {
     padding: 0px;
     box-shadow: 0 1px 2px 0 rgba(0, 0, 0, .05);
