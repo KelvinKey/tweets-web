@@ -3,6 +3,7 @@
     <div class="row mt-3">
       <div class="col-md-3">
         <HotTopics/>
+        <HotTweets/>
       </div>
       <div class="col-md-6">
         <TweetForm @page-changed="handlePageChanged"/>
@@ -19,6 +20,7 @@
   import HotTopics from '../../components/HotTopics'
   import TweetForm from '../../views/tweets/Form'
   import ProfileCard from '../../components/ProfileCard'
+  import HotTweets from '../../components/HotTweets'
   import {isEmpty} from 'lodash'
   import md5 from 'js-md5'
 
@@ -28,7 +30,8 @@
       TweetsList,
       TweetForm,
       HotTopics,
-      ProfileCard
+      ProfileCard,
+      HotTweets
     },
     data () {
       return {

@@ -1,27 +1,16 @@
 <template>
-  <div>
-    <div class="panel panel-default corner-radius panel-hot-topics">
-      <div class="panel-heading text-center">
-        <h2 class="panel-title">热门话题</h2>
-      </div>
-      <div class="panel-body">
-        <ul>
-          <li v-for="topic in topics" :key="topic.tid">
-            <a :href="'/topic/' + topic.name" class="panel-item"> {{ topic.name }}</a>
-          </li>
-        </ul>
-      </div>
-    </div>
 
-    <div class="panel panel-default corner-radius panel-hot-topics">
-      <div class="panel-heading text-center">
-        <h2 class="panel-title">热门动弹</h2>
-      </div>
-      <div class="panel-body">
-        <HotTweets />
-      </div>
+  <div class="panel panel-default corner-radius panel-hot-topics">
+    <div class="panel-heading text-center">
+      <h2 class="panel-title">热门话题</h2>
     </div>
-
+    <div class="panel-body">
+      <ul>
+        <li v-for="topic in topics" :key="topic.tid">
+          <a :href="'/topic/' + topic.name" class="panel-item"> {{ topic.name }}</a>
+        </li>
+      </ul>
+    </div>
   </div>
 </template>
 
@@ -42,7 +31,7 @@
       }
     },
     methods: {
-      loadHotTopics() {
+      loadHotTopics () {
         this.$http.get(`/topics`).then(topics => (this.topics = topics))
       }
     }

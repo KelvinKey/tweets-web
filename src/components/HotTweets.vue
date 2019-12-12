@@ -1,64 +1,69 @@
 <template>
-  <div class="related-pin-block pin-block">
-    <ul class="pin-list">
-      <li class="item"><a href="#" target="_blank" rel="" title="" class="pin">
-        <div class="content-box">
-          <div class="content">【动弹福利】 01期：小灰灰想谈恋爱！😋
-          </div>
-          <div class="stat item" style="margin-top: 0.83rem;">
-            <span> 142 赞 · </span>
-            <span>13 评论</span>
-          </div>
-        </div>
-      </a>
-      </li>
-      <li class="item"><a href="#" target="_blank" rel="" title="" class="pin">
-        <div class="content-box">
-          <div class="content">【动弹福利】 02期：小灰灰想谈恋爱！逮虾户😋
-          </div>
-          <div class="stat item" style="margin-top: 0.83rem;">
-            <span> 152 赞 · </span>
-            <span>63 评论</span>
-          </div>
-        </div>
-        <div class="image-box"></div>
-      </a>
-      </li>
-      <li class="item"><a href="#" target="_blank" rel="" title="" class="pin">
-        <div class="content-box">
-          <div class="content">【动弹福利】 03期：小灰灰想谈恋爱！😋
-          </div>
-          <div class="stat item" style="margin-top: 0.83rem;">
-            <span> 145 赞 · </span>
-            <span>3 评论</span>
-          </div>
-        </div>
-        <div class="image-box"></div>
-      </a>
-      </li>
-      <li class="item"><a href="#" target="_blank" rel="" title="" class="pin">
-        <div class="content-box">
-          <div class="content">【动弹福利】 04期：小灰灰想谈恋爱！😋
-          </div>
-          <div class="stat item" style="margin-top: 0.83rem;">
-            <span> 125 赞 · </span>
-            <span>3000 评论</span>
-          </div>
-        </div>
-        <div class="image-box"></div>
-      </a>
-      </li>
-    </ul>
+
+  <div class="panel panel-default corner-radius panel-hot-topics">
+    <div class="panel-heading text-center">
+      <h2 class="panel-title">热门动弹</h2>
+    </div>
+    <div class="panel-body">
+      <div class="related-pin-block pin-block">
+        <ul class="pin-list">
+          <li class="item" v-for="hot in hots.data" :key="hot.tid">
+            <a href="#" target="_blank" rel="" :title=hot.content class="pin">
+              <div class="content-box">
+                <div class="content">{{hot.content}}
+                </div>
+                <div class="stat item" style="margin-top: 0.83rem;">
+                  <span> {{hot.likes_count}} 赞 · </span>
+                  <span>{{hot.comments_count}} 评论</span>
+                </div>
+              </div>
+              <div class="image-box" :style="{backgroundImage:'url(' + hot.images[0] + ')'}"></div>
+            </a>
+          </li>
+        </ul>
+      </div>
+    </div>
   </div>
 </template>
 
 <script>
   export default {
-    name: 'hotTweets'
+    name: 'hotTweets',
+    data () {
+      return {
+        hots: {}
+      }
+    },
+    methods: {
+      loadHotTweets () {
+        this.$http.get('tweets?hot=true').then(hots => {
+          this.hots = hots
+        })
+      }
+    },
+    mounted () {
+      this.loadHotTweets()
+    }
   }
 </script>
 
 <style scoped>
+
+  .panel-title {
+    font-size: 1.25rem;
+    font-weight: bolder;
+    color: #2e3135;
+  }
+
+  .panel-body {
+    margin-left: -3rem;
+  }
+
+  .panel {
+    border: none;
+    border-radius: 3px;
+  }
+
   li {
     list-style: none;
   }
@@ -116,7 +121,6 @@
     background-position: 50%;
     background-size: cover;
     background-repeat: no-repeat;
-    background-image: url("https://avatars1.githubusercontent.com/u/18332628?s=460&v=4");
   }
 
   .pin-block {
