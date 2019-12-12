@@ -9,7 +9,7 @@
         <TweetForm @page-changed="handlePageChanged"/>
         <TweetsList :tweets="tweets" @page-changed="handlePageChanged"/>
       </div>
-      <div class="col-md-3" style="margin-left: inherit;">
+      <div class="col-md-3">
         <ProfileCard/>
       </div>
     </div>

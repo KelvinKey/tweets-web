@@ -57,7 +57,7 @@
       </div>
       <div class="action">分享</div>
     </div>
-    <CommentList  v-show="isReply"/>
+    <CommentList  v-show="showReply"/>
   </div>
 </template>
 
@@ -76,7 +76,7 @@
         isShow: false,
         isLiked: false,
         isAtten: true,
-        isReply: false
+        showReply: false
       }
     },
     components: {
@@ -124,7 +124,7 @@
         return value.replace(/#([^#]{1,20})#/g, '<a href= "/topic/$1" >#$1#</a>')
       },
       reply () {
-        this.isReply = !this.isReply
+        this.showReply = !this.showReply
       }
     },
     watch: {
@@ -147,6 +147,7 @@
     margin-top: 10px;
     margin-bottom: -10px;
     padding-right: 2.3rem;
+    word-break: break-all;
   }
 
   .action-box {

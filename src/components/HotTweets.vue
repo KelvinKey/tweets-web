@@ -10,14 +10,15 @@
           <li class="item" v-for="hot in hots.data" :key="hot.tid">
             <a href="#" target="_blank" rel="" :title=hot.content class="pin">
               <div class="content-box">
-                <div class="content">{{hot.content}}
+                <div class="content"  v-html="parseContent(hot.content)">
                 </div>
                 <div class="stat item" style="margin-top: 0.83rem;">
                   <span> {{hot.likes_count}} 赞 · </span>
                   <span>{{hot.comments_count}} 评论</span>
                 </div>
               </div>
-              <div class="image-box" :style="{backgroundImage:'url(' + hot.images[0] + ')'}" v-show="hot.images[0] ==undefined ? false :true"></div>
+              <div class="image-box" :style="{backgroundImage:'url(' + hot.images[0] + ')'}"
+                   v-show="hot.images[0] == undefined ? false : true"></div>
             </a>
           </li>
         </ul>
@@ -39,6 +40,9 @@
         this.$http.get('tweets?hot=true').then(hots => {
           this.hots = hots
         })
+      },
+      parseContent (value) {
+        return value.replace(/#([^#]{1,20})#/g, '<a href= "/topic/$1" >#$1#</a>')
       }
     },
     mounted () {
@@ -95,7 +99,7 @@
 
   .content {
     color: #2e3135;
-    font-size: 1rem;
+    font-size: 15px;
     display: -webkit-box;
     -webkit-box-orient: vertical;
     text-overflow: ellipsis;
@@ -104,6 +108,7 @@
     max-height: 3.5rem;
     max-width: 22rem;
     max-height: 3em;
+    word-break: break-all;
   }
 
   .stat {
