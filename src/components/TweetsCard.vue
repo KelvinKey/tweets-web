@@ -51,13 +51,13 @@
         <i :class="'fa fa-thumbs' + (tweet.liked && isLogged ? '' : '-o') + '-up'" aria-hidden="true"></i>
         <span>{{ tweet.likes_count }}</span>
       </div>
-      <div class="action" @click="review">
+      <div class="action" @click="reply">
         <i class="fa fa-comments-o" aria-hidden="true"></i>
         <span>{{ tweet.comments_count }}</span>
       </div>
       <div class="action">分享</div>
     </div>
-    <CommentList  v-show="isReview"/>
+    <CommentList  v-show="isReply"/>
   </div>
 </template>
 
@@ -76,7 +76,7 @@
         isShow: false,
         isLiked: false,
         isAtten: true,
-        isReview: false
+        isReply: false
       }
     },
     components: {
@@ -123,8 +123,8 @@
       parseContent (value) {
         return value.replace(/#([^#]{1,20})#/g, '<a href= "/topic/$1" >#$1#</a>')
       },
-      review () {
-        this.isReview = !this.isReview
+      reply () {
+        this.isReply = !this.isReply
       }
     },
     watch: {

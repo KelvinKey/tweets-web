@@ -17,7 +17,7 @@
                   <span>{{hot.comments_count}} 评论</span>
                 </div>
               </div>
-              <div class="image-box" :style="{backgroundImage:'url(' + hot.images[0] + ')'}"></div>
+              <div class="image-box" :style="{backgroundImage:'url(' + hot.images[0] + ')'}" v-show="hot.images[0] ==undefined ? false :true"></div>
             </a>
           </li>
         </ul>
