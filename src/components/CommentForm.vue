@@ -2,18 +2,18 @@
   <div class="comment-form box-block">
     <div class="avatar-container pull-left">
       <a href="#">
-        <img src="https://tweets.app/storage/images/2019/12/10/00068ab81afd9ef649bb1481d46f45fe.jpeg" class="media-object avatar avatar-small">
+        <img  class="media-object avatar avatar-small" :src= this.currentUser.avatar>
       </a>
     </div>
     <div class="input-box">
       <div class="form-group">
-        <textarea v-if="isLogged" v-model="content" class="form-control" placeholder="输入评论..." ></textarea>
+        <textarea v-if="isLogged" v-model="content" class="form-control" placeholder="输入评论..." @focus="focus()" ></textarea>
         <textarea v-else disabled class="form-control" placeholder="'需要登录后才能发布评论"></textarea>
       </div>
       <div class="form-group">
         <UploadImage ref="uploadImage" @images-updated="imagesUpdated"/>
       </div>
-      <div class="form-group" :class="{hide: !isLogged}">
+      <div class="form-group" :class="{hide: !isLogged}" v-show="isGroup">
         <div class="action-box">
           <EmojiPicker @emoji-selected="emojiSelected"/>
           <div @click="uploadImage">
@@ -37,7 +37,8 @@
       return {
         topicName: '',
         content: '',
-        images: []
+        images: [],
+        isGroup: false
       }
     },
     components: {
@@ -45,13 +46,13 @@
       EmojiPicker
     },
     computed: {
-      ...mapGetters(['isLogged'])
+      ...mapGetters(['currentUser', 'isLogged'])
     },
     methods: {
       async publish () {
         await this.$http.post('tweets', this.$data)
 
-        this.loadTopicName()
+        //this.loadTopicName()
         this.$emit('page-changed', 1)
         this.$message.success('发布成功')
         this.$refs.uploadImage.$emit('clear')
@@ -68,6 +69,9 @@
         for (let index in images) {
          this.images.push(images[index].response.url)
         }
+      },
+      focus () {
+        this.isGroup = true
       }
     }
   }

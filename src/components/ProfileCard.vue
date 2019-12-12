@@ -31,7 +31,7 @@
 
 <script>
   export default {
-    name: 'TweetsSide',
+    name: 'ProfileCard',
     mounted () {
       this.loadUser()
     },
@@ -59,15 +59,13 @@
     flex-direction: column;
     background-color: #fff;
     border-radius: .2rem;
-    margin-bottom: -13px;
+    margin-bottom: -10px;
     font-size: 13px;
   }
 
   .profile-box .profile {
     display: flex;
-    padding: 16px;
-    height: 5rem;
-    max-height: 92px;
+    padding: 8px 0;
     border-bottom: 1px solid rgba(92, 96, 102, .1);
   }
 
@@ -121,12 +119,12 @@
 
   .profile-box .profile .avatar {
     flex: 0 0 auto;
-    margin-right: 1rem;
+    margin-right: 0.8rem;
     width: 55px;
     height: 55px;
     border-radius: 50%;
     border: 1px solid #fff;
     box-shadow: 0 2px 6px 0 rgba(0, 0, 0, .15);
-    margin-top: -1rem;
+    margin-top: -0.5rem;
   }
 </style>

@@ -3,13 +3,14 @@
     <div class="row mt-3">
       <div class="col-md-3">
         <HotTopics/>
+        <HotTweets/>
       </div>
       <div class="col-md-6">
         <TweetForm @page-changed="handlePageChanged"/>
         <TweetsList :tweets="tweets" @page-changed="handlePageChanged"/>
       </div>
-      <div class="col-md-3" style="margin-left: inherit;">
-        <TweetsSide />
+      <div class="col-md-3">
+        <ProfileCard/>
       </div>
     </div>
   </div>
@@ -18,7 +19,8 @@
   import TweetsList from '../../components/TweetsList'
   import HotTopics from '../../components/HotTopics'
   import TweetForm from '../../views/tweets/Form'
-  import TweetsSide from '../../components/TweetsSide'
+  import ProfileCard from '../../components/ProfileCard'
+  import HotTweets from '../../components/HotTweets'
   import {isEmpty} from 'lodash'
   import md5 from 'js-md5'
 
@@ -28,7 +30,8 @@
       TweetsList,
       TweetForm,
       HotTopics,
-      TweetsSide
+      ProfileCard,
+      HotTweets
     },
     data () {
       return {
@@ -43,7 +46,7 @@
 
         this.$http
           .get(`${path}tweets?include=user&page=${page}`)
-          .then(tweets => (this.tweets = tweets))
+          .then(tweets => { this.tweets = tweets })
       },
       handlePageChanged (page) {
         this.loadTweets(page)

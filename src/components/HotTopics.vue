@@ -1,4 +1,5 @@
 <template>
+
   <div class="panel panel-default corner-radius panel-hot-topics">
     <div class="panel-heading text-center">
       <h2 class="panel-title">热门话题</h2>
@@ -11,12 +12,16 @@
       </ul>
     </div>
   </div>
-
 </template>
 
 <script>
+  import HotTweets from '../components/HotTweets'
+
   export default {
     name: 'HotTopics',
+    components: {
+      HotTweets
+    },
     mounted () {
       this.loadHotTopics()
     },
@@ -55,9 +60,11 @@
   .panel-body {
     margin-left: -3rem;
   }
+
   a:active, a:link, a:visited {
     text-decoration: none;
   }
+
   .panel {
     border: none;
     border-radius: 3px;

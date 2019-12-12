@@ -51,12 +51,13 @@
         <i :class="'fa fa-thumbs' + (tweet.liked && isLogged ? '' : '-o') + '-up'" aria-hidden="true"></i>
         <span>{{ tweet.likes_count }}</span>
       </div>
-      <div class="action">
+      <div class="action" @click="reply">
         <i class="fa fa-comments-o" aria-hidden="true"></i>
         <span>{{ tweet.comments_count }}</span>
       </div>
       <div class="action">分享</div>
     </div>
+    <CommentList  v-show="showReply"/>
   </div>
 </template>
 
@@ -65,6 +66,7 @@
   import { Image as ElImage } from 'element-ui'
   import 'element-ui/lib/theme-chalk/image.css'
   import 'element-ui/lib/image'
+  import CommentList from '../components/CommentList'
 
   export default {
     name: 'TweetsCard',
@@ -73,11 +75,13 @@
       return {
         isShow: false,
         isLiked: false,
-        isAtten: true
+        isAtten: true,
+        showReply: false
       }
     },
     components: {
-      ElImage
+      ElImage,
+      CommentList
     },
     computed: {
       ...mapGetters(['currentUser', 'isLogged'])
@@ -118,6 +122,9 @@
       },
       parseContent (value) {
         return value.replace(/#([^#]{1,20})#/g, '<a href= "/topic/$1" >#$1#</a>')
+      },
+      reply () {
+        this.showReply = !this.showReply
       }
     },
     watch: {
@@ -140,6 +147,7 @@
     margin-top: 10px;
     margin-bottom: -10px;
     padding-right: 2.3rem;
+    word-break: break-all;
   }
 
   .action-box {
