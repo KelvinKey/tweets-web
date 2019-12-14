@@ -35,10 +35,14 @@
     name: 'Form',
     data () {
       return {
-        topicName: '',
         content: '',
         images: [],
         isGroup: false
+      }
+    },
+    props: {
+      tid: {
+        type: String
       }
     },
     components: {
@@ -50,10 +54,10 @@
     },
     methods: {
       async publish () {
-        await this.$http.post('tweets', this.$data)
+        await this.$http.post(`tweets/${this.tid}/comments`, this.$data)
 
         this.$emit('page-changed', 1)
-        this.$message.success('发布成功')
+        this.$message.success('评论成功')
         this.$refs.uploadImage.$emit('clear')
       },
       emojiSelected (emoji) {

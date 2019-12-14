@@ -57,7 +57,7 @@
       </div>
       <div class="action">分享</div>
     </div>
-    <CommentList  v-show="showReply"/>
+    <CommentList :tid="tweet.tid" v-show="showReply"/>
   </div>
 </template>
 

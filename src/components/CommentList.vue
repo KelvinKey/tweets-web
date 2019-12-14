@@ -1,6 +1,6 @@
 <template>
   <div class="comment-list-box">
-    <CommentForm />
+    <CommentForm :tid="tid" />
   </div>
 </template>
 
@@ -9,6 +9,11 @@
 
   export default {
     name: 'CommentList',
+    props: {
+      tid: {
+        type: String
+      }
+    },
     components: {CommentForm}
   }
 </script>

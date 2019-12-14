@@ -32,7 +32,7 @@
     },
     methods: {
       loadHotTopics () {
-        this.$http.get(`/topics`).then(topics => (this.topics = topics))
+        this.$http.get('topics?tab=hot').then(topics => (this.topics = topics))
       }
     }
   }
