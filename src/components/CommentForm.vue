@@ -52,7 +52,6 @@
       async publish () {
         await this.$http.post('tweets', this.$data)
 
-        //this.loadTopicName()
         this.$emit('page-changed', 1)
         this.$message.success('发布成功')
         this.$refs.uploadImage.$emit('clear')
@@ -119,42 +118,4 @@
     margin-left: 10px;
     display: inline-block;
   }
-
-  /*.comment-form {*/
-  /*  margin: 1.333rem 1.666rem;*/
-  /*  display: flex;*/
-  /*  position: relative;*/
-  /*  padding: 1rem 1.333rem;*/
-  /*  background-color: #fafbfc;*/
-  /*  border-radius: 3px;*/
-  /*}*/
-
-  /*.input-box {*/
-  /*  font-size: 0;*/
-  /*  background-color: #fff;*/
-  /*  border: 1px solid #f1f1f1;*/
-  /*  border-radius: 3px;*/
-  /*}*/
-
-  /*.rich-input {*/
-  /*  position: relative;*/
-  /*  padding: .6rem 1rem;*/
-  /*  font-size: 1.083rem;*/
-  /*  line-height: 1.7;*/
-  /*  color: #17181a;*/
-  /*  outline: none;*/
-  /*  min-height: 1.3em;*/
-  /*}*/
-
-  /*.rich-input:before {*/
-  /*  content: attr(placeholder);*/
-  /*  position: absolute;*/
-  /*  opacity: .4;*/
-  /*  pointer-events: none;*/
-  /*  user-select: none;*/
-  /*}*/
-
-  /*.comment-form:focus {*/
-  /*  border-color: #007fff;*/
-  /*}*/
 </style>

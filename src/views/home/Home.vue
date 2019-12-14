@@ -3,14 +3,14 @@
     <div class="row mt-3">
       <div class="col-md-3">
         <HotTopics/>
-        <HotTweets/>
+        <HotTweets class="visible-lg"/>
       </div>
       <div class="col-md-6">
         <TweetForm @page-changed="handlePageChanged"/>
         <TweetsList :tweets="tweets" @page-changed="handlePageChanged"/>
       </div>
       <div class="col-md-3">
-        <ProfileCard/>
+        <ProfileCard class="visible-lg"/>
       </div>
     </div>
   </div>
