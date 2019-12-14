@@ -1,7 +1,7 @@
 <template>
   <div class="panel panel-default corner-radius panel-sidebar">
     <div class="panel-body">
-      <div class="profile-box shadow">
+      <div class="profile-box shadow" v-if="isLogged">
         <div class="profile">
           <a href="#" target="_blank">
             <div class="lazy avatar loaded"
@@ -25,15 +25,29 @@
             <div class="count">{{user.followers_count}}</div>
           </a></ul>
       </div>
+      <div class="login-card" v-else>
+        <p>加入 Tweets</p>
+        <p>和老司机一起飙车</p>
+
+        <div class="auth-btn">
+          <router-link to="/auth/register" class="btn btn-primary btn-block">注册</router-link>
+          <router-link to="/auth/login" class="btn btn-block btn-outline-primary">登录</router-link>
+        </div>
+      </div>
     </div>
   </div>
 </template>
 
 <script>
+  import { mapGetters } from 'vuex'
+
   export default {
     name: 'ProfileCard',
     mounted () {
-      this.loadUser()
+      this.isLogged && this.loadUser()
+    },
+    computed: {
+      ...mapGetters(['isLogged'])
     },
     data () {
       return {
@@ -81,7 +95,6 @@
   a {
     text-decoration: none;
     cursor: pointer;
-    color: #909090;
   }
 
   .profile-box .stat-list .item:not(:last-child) {
@@ -126,5 +139,20 @@
     border: 1px solid #fff;
     box-shadow: 0 2px 6px 0 rgba(0, 0, 0, .15);
     margin-top: -0.5rem;
+  }
+
+  .btn-outline-primary {
+    color: #0078ff;
+    border-color: #0078ff;
+  }
+
+  .login-card .auth-btn {
+    padding: 15px 0;
+  }
+
+  .login-card p {
+    text-align: center;
+    font-size: 15px;
+    font-weight: 600;
   }
 </style>
