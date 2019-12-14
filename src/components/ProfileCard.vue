@@ -151,6 +151,7 @@
   }
 
   .login-card p {
+    color: black;
     text-align: center;
     font-size: 15px;
     font-weight: 600;

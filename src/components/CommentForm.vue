@@ -2,13 +2,13 @@
   <div class="comment-form box-block">
     <div class="avatar-container pull-left">
       <a href="#">
-        <img  class="media-object avatar avatar-small" :src= this.currentUser.avatar>
+        <img v-if="isLogged" class="media-object avatar avatar-small" :src="this.currentUser.avatar">
       </a>
     </div>
     <div class="input-box">
       <div class="form-group">
         <textarea v-if="isLogged" v-model="content" class="form-control" placeholder="输入评论..." @focus="focus()" ></textarea>
-        <textarea v-else disabled class="form-control" placeholder="'需要登录后才能发布评论"></textarea>
+        <textarea v-else disabled class="form-control" placeholder="需要登录后才能发布评论"></textarea>
       </div>
       <div class="form-group">
         <UploadImage ref="uploadImage" @images-updated="imagesUpdated"/>
