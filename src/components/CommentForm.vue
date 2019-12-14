@@ -56,7 +56,7 @@
       async publish () {
         await this.$http.post(`tweets/${this.tid}/comments`, this.$data)
 
-        this.$emit('page-changed', 1)
+        this.$emit('published')
         this.$message.success('评论成功')
         this.$refs.uploadImage.$emit('clear')
       },

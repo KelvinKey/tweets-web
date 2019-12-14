@@ -18,7 +18,7 @@
           </abbr>
         </div>
         <div class="tweets-attention" @mouseleave="leaveMoreBtn">
-          <button v-if="isLogged && this.currentUser.uid !== this.tweet.uid" v-show="isAtten" class="subscribe-btn"
+          <button v-if="isLogged && this.currentUser.uid !== this.tweet.uid" v-show="!this.tweet.user.followed" class="subscribe-btn"
                   v-on:click="attention">关注
           </button>
           <div class="more-btn" v-on:click="report" v-if="isLogged">
@@ -51,13 +51,13 @@
         <i :class="'fa fa-thumbs' + (tweet.liked && isLogged ? '' : '-o') + '-up'" aria-hidden="true"></i>
         <span>{{ tweet.likes_count }}</span>
       </div>
-      <div class="action" @click="reply">
+      <div class="action" @click="toggleCommentVisible">
         <i class="fa fa-comments-o" aria-hidden="true"></i>
         <span>{{ tweet.comments_count }}</span>
       </div>
       <div class="action">分享</div>
     </div>
-    <CommentList :tid="tweet.tid" v-show="showReply"/>
+    <CommentList ref="comment" :tid="tweet.tid" v-show="commentVisible"/>
   </div>
 </template>
 
@@ -74,8 +74,7 @@
       return {
         isShow: false,
         isLiked: false,
-        isAtten: true,
-        showReply: false
+        commentVisible: false
       }
     },
     components: {
@@ -105,7 +104,7 @@
         await this.$http
           .post(`users/${this.tweet.uid}/follow`)
           .then(data => {
-            this.isAtten = false
+            this.tweet.user.followed = true
           })
 
         this.$message.warning('关注成功~')
@@ -116,23 +115,18 @@
       leaveMoreBtn () {
         this.isShow = false
       },
-      isAttened () {
-        this.isAtten = !this.tweet.user.followed
-      },
       parseContent (value) {
         return value.replace(/#([^#]{1,20})#/g, '<a href= "/topic/$1" >#$1#</a>')
       },
-      reply () {
-        this.showReply = !this.showReply
+      toggleCommentVisible () {
+        this.commentVisible = !this.commentVisible
+        this.$refs.comment.$emit('showComment')
       }
     },
     watch: {
       isLogged (val) {
         !val && (this.tweet.liked = false)
       }
-    },
-    mounted () {
-      this.isAttened()
     }
   }
 </script>
