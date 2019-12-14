@@ -64,7 +64,6 @@
 <script>
   import {mapGetters} from 'vuex'
   import { Image as ElImage } from 'element-ui'
-  import 'element-ui/lib/theme-chalk/image.css'
   import 'element-ui/lib/image'
   import CommentList from '../components/CommentList'
 

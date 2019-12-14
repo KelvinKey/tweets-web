@@ -25,8 +25,6 @@
 <script>
   import { mapGetters } from 'vuex'
   import {Upload, Dialog} from 'element-ui'
-  import 'element-ui/lib/theme-chalk/upload.css'
-  import 'element-ui/lib/theme-chalk/dialog.css'
   import 'element-ui/lib/upload'
   import 'element-ui/lib/dialog'
 

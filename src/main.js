@@ -8,8 +8,6 @@ import store from './vuex'
 import './directives'
 import './filters'
 import { Message } from 'element-ui'
-import 'element-ui/lib/theme-chalk/icon.css'
-import 'element-ui/lib/theme-chalk/message.css'
 
 Vue.config.productionTip = false
 
