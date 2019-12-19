@@ -9,7 +9,7 @@
         <div class="panel-body" data-validator-form>
           <div class="form-group">
             <label class="control-label">用户名</label>
-            <input @blur.prevent="checkUserExists('username')" v-model.trim="username" v-validator:input.required="{ regex: /^[a-zA-Z\d]+$/, error: '用户名要求以字母开头的单词字符' }" ref="usernameInput" type="text" class="form-control" placeholder="请填写用户名">
+            <input @blur.prevent="checkUserExists('username')" v-model.trim="username" v-validator:input.required="{ regex: /[A-Za-z0-9_\-\u4e00-\u9fa5]{4,20}/, error: '用户名有误' }" ref="usernameInput" type="text" class="form-control" placeholder="请填写用户名">
           </div>
           <div class="form-group">
             <label class="control-label">手机号</label>
