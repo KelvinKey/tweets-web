@@ -66,6 +66,7 @@
       },
       published () {
         this.loadLatestComments()
+        this.$emit('commented')
       }
     }
   }

@@ -57,7 +57,7 @@
       </div>
       <div class="action">分享</div>
     </div>
-    <CommentList ref="comment" :tid="tweet.tid" v-show="commentVisible"/>
+    <CommentList @commented="commented" ref="comment" :tid="tweet.tid" v-show="commentVisible"/>
   </div>
 </template>
 
@@ -121,6 +121,9 @@
       toggleCommentVisible () {
         this.commentVisible = !this.commentVisible
         this.$refs.comment.$emit('showComment')
+      },
+      commented () {
+        this.tweet.comments_count++
       }
     },
     watch: {
