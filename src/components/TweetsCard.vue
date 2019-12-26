@@ -14,7 +14,7 @@
           <abbr>{{ tweet.user.intro }}</abbr>
           <div class="dot" v-if="tweet.user.intro">·</div>
           <abbr class="timeago">
-            {{ tweet.created_at | moment('from', { startOf: 'second' }) }}
+            {{ showTweetDate(tweet.created_at) }}
           </abbr>
         </div>
         <div class="tweets-attention" @mouseleave="leaveMoreBtn">
@@ -63,6 +63,7 @@
 
 <script>
   import {mapGetters} from 'vuex'
+  import moment from 'moment'
   import { Image as ElImage } from 'element-ui'
   import 'element-ui/lib/image'
   import CommentList from '../components/CommentList'
@@ -125,6 +126,13 @@
       },
       commented () {
         this.tweet.comments_count++
+      },
+      showTweetDate (date) {
+        let diff = (Date.now() - Date.parse(date)) / (24 * 60 * 60 * 1000)
+
+        return diff >= 3
+          ? moment().format('YYYY/MM/DD HH:mm')
+          : moment().startOf('day').from(date)
       }
     },
     watch: {
