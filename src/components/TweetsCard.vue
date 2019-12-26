@@ -117,6 +117,7 @@
       },
       parseContent (value) {
         return value.replace(/#([^#]{1,20})#/g, '<a href= "/topic/$1" >#$1#</a>')
+          .replace(/([a-zA-z]+:\/\/)?(([^\s]+)\.([^\s]+))/g, `<a href="$1$2" target="_blank" rel="nofollow">$1$2</a>`)
       },
       toggleCommentVisible () {
         this.commentVisible = !this.commentVisible
