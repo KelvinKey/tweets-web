@@ -132,7 +132,7 @@
 
         return diff >= 3
           ? moment().format('YYYY/MM/DD HH:mm')
-          : moment().startOf('day').from(date)
+          : moment().startOf('second').from(date)
       }
     },
     watch: {
