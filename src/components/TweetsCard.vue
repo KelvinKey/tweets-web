@@ -131,7 +131,7 @@
         let diff = (Date.now() - Date.parse(date)) / (24 * 60 * 60 * 1000)
 
         return diff >= 3
-          ? moment().format('YYYY/MM/DD HH:mm')
+          ? moment(date).format('YYYY/MM/DD HH:mm')
           : moment().startOf('second').from(date)
       }
     },
