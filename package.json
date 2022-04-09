@@ -17,7 +17,7 @@
     "font-awesome": "^4.7.0",
     "js-md5": "^0.7.3",
     "lodash": "^4.17.15",
-    "moment": "^2.24.0",
+    "moment": "^2.29.2",
     "vue": "^2.5.2",
     "vue-data-loading": "^0.2.4",
     "vue-emoji-picker": "^1.0.1",
